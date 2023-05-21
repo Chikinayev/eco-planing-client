@@ -12,7 +12,7 @@ export function safeUnsub(...subscriptions: Subscription[]) {
 
 export const promisify: <T>(observable: Observable<HttpResponse<T>>) => Promise<T>
   = <T>(observable: Observable<HttpResponse<T>>) =>
-(observable.toPromise().then(x => x.body as T) as Promise<T>);
+  (observable.toPromise().then(x => x.body as T) as Promise<T>);
 
 export const logAndReturnEmpty: (err) => Observable<never> = err => {
   console.error(err);

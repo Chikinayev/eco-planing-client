@@ -1,0 +1,66 @@
+// registration.component.scss
+
+.registration-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #008000;
+  }
+
+  form {
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        font-weight: bold;
+        color: #008000;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .error-message {
+        color: #ff0000;
+        margin-top: 5px;
+        font-size: 12px;
+      }
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #008000;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #006400;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

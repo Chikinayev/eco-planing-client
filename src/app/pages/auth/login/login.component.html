@@ -1,0 +1,31 @@
+<div>
+  <h2>Login</h2>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <label>
+    Username:
+    <input type="text" [(ngModel)]="email">
+  </label>
+  <br>
+  <label>
+    Password:
+    <input type="password" [(ngModel)]="password">
+  </label>
+  <br>
+  <button (click)="login()">Login</button>
+  <div
+    (click)="navigateToForgotPassword()"
+    class="forget-password">
+    <a>
+      <p>Забыли пароль?</p>
+    </a>
+  </div>
+  <p>Ещё не зарегистрированы?</p>
+  <button
+    class="primary-button"
+    (click)="redirectToRegister()"
+  >
+    Зарегистрироваться
+  </button>
+
+
+</div>
