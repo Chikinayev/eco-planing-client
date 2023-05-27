@@ -1,0 +1,67 @@
+
+.header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  grid-column: span 2;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.header .logo {
+  padding: 6px 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  background: #04AA6D;
+  color:white;
+
+}
+.header .menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.header .login-reg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+.header .mobile-menu {
+  display: none;
+  font-size: 30px;
+}
+
+
+//
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap'); */
+
+
+
+.title {
+  margin: 15px;
+}
+
+/* Layout */
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  grid-template-rows: 100px 1fr minmax(100px, auto);
+  grid-auto-rows: 50px;
+  gap: 10px;
+}
+#avatar{
+  width: 200px;
+}
+.container > * {
+  padding: 8px 10px;
+  background: white;
+  color: black;
+}

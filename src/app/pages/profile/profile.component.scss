@@ -1,33 +1,110 @@
-.profile-container {
-  background-color: #F0F5F5;
-  padding: 20px;
+
+.title {
+  margin: 15px;
+}
+
+/* Layout */
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  grid-template-rows: 100px 1fr minmax(100px, auto);
+  grid-auto-rows: 50px;
+  gap: 10px;
+}
+#avatar{
+  width: 200px;
+}
+.container > * {
+  padding: 8px 10px;
+  background: white;
+  color: black;
+}
+
+
+/* Content */
+.content {
+  background: white;
+  grid-column: 1;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.content__title {
+  text-align: center;
+  font-weight: 500;
+  margin: 10px 0 15px;
+  font-size: 22px;
+}
+.content__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+/* profile */
+.profile{
+  display: flex;
+  border-style: groove;
+  gap:10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  min-height: 330px;
+}
+.profile_title{
+  border-style: inherit;
+}
+.profile_content{
+  border-style: inherit;
+  width: 600px;
+}
+.profile_events{
+  margin-top:20px;
+}
+.profile_events_types{
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid;
+  margin-top: 20px;
+  gap: 10px;
+  justify-content: start;
 }
 
-.profile-container h2 {
-  color: #008000;
-  margin-bottom: 20px;
-}
 
-.profile-container label {
-  font-weight: bold;
-}
-
-.profile-container p {
-  margin: 0;
-}
-
-.profile-container ul {
-  padding-left: 20px;
-}
-
-.profile-container img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 10px;
+/* UI Components */
+.block-title {
+  font-weight: 500;
+  font-size: 16px;
   margin-bottom: 10px;
+}
+.block {
+  width: 100%;
+  text-transform: initial;
+  font-weight: 300;
+  font-size: 15px;
+  background: white;
+  color: #333;
+  padding: 8px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  border-style: groove;
+
+}
+.block_flex {
+  display: flex;
+  gap: 5px;
+}
+input {
+  width: 100%;
+  flex-grow: 1;
+  padding: 5px;
+  outline: none;
+  border: 0.5px solid #3335;
+  border-radius: 2px;
+}
+button {
+  cursor: pointer;
+  background: #04AA6D;
+  color: white;
+  border: 0.5px solid #3335;
+  border-radius: 2px;
 }

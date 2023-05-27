@@ -1,31 +1,27 @@
-<div>
-  <h2>Login</h2>
-  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  <label>
-    Username:
-    <input type="text" [(ngModel)]="email">
-  </label>
-  <br>
-  <label>
-    Password:
-    <input type="password" [(ngModel)]="password">
-  </label>
-  <br>
-  <button (click)="login()">Login</button>
-  <div
-    (click)="navigateToForgotPassword()"
-    class="forget-password">
-    <a>
-      <p>Забыли пароль?</p>
-    </a>
+<div class="container-main">
+  <div class="form-container" id="form-container-login">
+    <div class="form-login">
+      <h2 class='title'>Вход</h2>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <input type="text" [(ngModel)]="email" placeholder="Email или телефон" class='form-input-login'>
+      <input type="password" [(ngModel)]="password" placeholder="Пароль" class='form-input-login'>
+      <button (click)="login()"
+              class='form-submit'>Вход
+      </button>
+      <div
+        (click)="navigateToForgotPassword()"
+        class="forget-password">
+        <a>
+          <p>Забыли пароль?</p>
+        </a>
+      </div>
+      <button
+        class="registration-btn"
+        (click)="redirectToRegister()"
+      >
+        Нет аккаунта?
+      </button>
+    </div>
   </div>
-  <p>Ещё не зарегистрированы?</p>
-  <button
-    class="primary-button"
-    (click)="redirectToRegister()"
-  >
-    Зарегистрироваться
-  </button>
-
-
 </div>
+

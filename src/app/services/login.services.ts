@@ -8,15 +8,11 @@ import {Router} from "@angular/router";
 @Injectable({providedIn: 'root'})
 export class LoginServices {
 
-
-
-  errorMessage: string;
-
   constructor(private readonly auth: WebAuthController,
               private readonly router: Router) {
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string, errorMessage: string) {
     if (!email) {
       return;
     }
@@ -32,11 +28,11 @@ export class LoginServices {
         console.log('ttttttttt :: ', value)}),
       catchError(err => {
         if (err.status === 403) {
-          this.errorMessage = 'У вас нет разрешения для доступа к этому ресурсу.';
+          errorMessage = 'У вас нет разрешения для доступа к этому ресурсу.';
         } else {
-          this.errorMessage = 'Произошла ошибка. Пожалуйста, попробуйте еще раз.';
+          errorMessage = 'Произошла ошибка. Пожалуйста, попробуйте еще раз.';
         }
-        console.log('qweqwwwwwwwwwwwwwwww')
+
         return throwError(err);
       })
     ).subscribe();

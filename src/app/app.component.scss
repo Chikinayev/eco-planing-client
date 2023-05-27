@@ -1,0 +1,50 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap'); */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: #048263;
+}
+li:hover{
+  color: #048263;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  font-family: 'Roboto Slab', serif;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+  padding-bottom: 10px;
+}
+
+.title {
+  margin: 15px;
+}
+
+/* Layout */
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  grid-template-rows: 100px 1fr minmax(100px, auto);
+  grid-auto-rows: 50px;
+  gap: 10px;
+}
+#avatar{
+  width: 200px;
+}
+.container > * {
+  padding: 8px 10px;
+  background: white;
+  color: black;
+}

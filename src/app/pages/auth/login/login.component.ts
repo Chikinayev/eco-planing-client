@@ -15,19 +15,13 @@ export class LoginComponent implements OnInit{
   web: WebAuthController = inject(WebAuthController);
   constructor(private readonly router: Router,
               private loginService: LoginServices) {
-    console.log('222222222')
 
-    // this.web.loadAuthInfo().pipe(
-    //   tap(x=> {
-    //     console.log('ggggg', x)
-    //   })
-    // ).subscribe();
   }
 
 
   login(): void {
     console.log(`Username: ${this.email}, Password: ${this.password}`);
-    this.loginService.login(this.email, this.password);
+    this.loginService.login(this.email, this.password, this.errorMessage);
     // выполнение логики для входа пользователя
   }
 

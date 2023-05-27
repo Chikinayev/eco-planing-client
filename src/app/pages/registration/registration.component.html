@@ -1,69 +1,56 @@
 <!-- registration.component.html -->
-
-<form (ngSubmit)="onSubmit()"><!-- registration.component.html -->
-
-  <div class="registration-container">
-    <h2>Registration</h2>
-
-    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm" novalidate>
-      <div class="form-group">
-        <label for="firstName">Имя</label>
-        <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required>
-        <div class="error-message" *ngIf="nameError">{{ nameError }}</div>
-      </div>
-
-      <div class="form-group">
-        <label for="firstName">Фамилия</label>
-        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
-      </div>
-
-      <div class="form-group">
-        <label for="firstName">Номер телефона</label>
-        <input type="text" id="phone" name="phone" [(ngModel)]="user.phoneNumber" required>
-      </div>
-
-      <div class="form-group">
-        <label for="firstName">Город</label>
-        <input type="text" id="city" name="city" [(ngModel)]="user.city" required>
-      </div>
-
-<!--      <div class="form-group">-->
-<!--        <label for="firstName">Добавить картинку</label>-->
-<!--        <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png" multiple>-->
-<!--      </div>-->
+<div class="container-main">
+  <div class="form-container" id="form-container-register">
+          <h2 class='title'>Регистрация</h2>
+          <form (ngSubmit)="onSubmit()" #registrationForm="ngForm" class="form-registration"
+                novalidate>
+              <input type="text" id="firstName"
+                     name="firstName" [(ngModel)]="user.firstName"
+                     placeholder="имя"
+                     class='form-input-register'
+                     required>
+              <div class="error-message" *ngIf="nameError">{{ nameError }}</div>
 
 
-<!--      <div *ngFor="let personImage of images">-->
-<!--        <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Изображение">-->
-<!--        <button (click)="delImageUrl(personImage)"></button>-->
-<!--      </div>-->
+              <input type="text" id="lastName"
+                     name="lastName" [(ngModel)]="user.lastName"
+                     placeholder="фамилия" class='form-input-register'
+                     required>
+              <input type="text" id="phone"
+                     name="phone" [(ngModel)]="user.phoneNumber"
+                     placeholder="телефон" class='form-input-register'
+                     required>
+              <input type="text" id="city"
+                     name="city" [(ngModel)]="user.city"
+                     placeholder="город" class='form-input-register'
+                     required>
 
-      <div class="form-group">
-        <label for="firstName">Email</label>
-        <input type="text" id="email" name="email" [(ngModel)]="user.email" required>
-      </div>
+              <input type="text" id="email"
+                     name="email" [(ngModel)]="user.email"
+                     placeholder="Email" class='form-input-register'
+                     required>
+              <input type="password" id="password"
+                     name="password" [(ngModel)]="user.password"
+                     placeholder="новый пароль" class='form-input-register'
+                     required>
+              <div class="error-message" *ngIf="passwordError">{{ passwordError }}</div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
-        <div class="error-message" *ngIf="passwordError">{{ passwordError }}</div>
-      </div>
+              <input type="password" id="repeatPassword"
+                     name="repeatPassword" [(ngModel)]="repeatPassword"
+                     placeholder="повторный пароль" class='form-input-register'
+                     required>
+              <div class="error-message" *ngIf="repeatPasswordError">{{ repeatPasswordError }}</div>
 
-      <div class="form-group">
-        <label for="repeatPassword">Repeat Password</label>
-        <input type="password" id="repeatPassword" name="repeatPassword" [(ngModel)]="repeatPassword" required>
-        <div class="error-message" *ngIf="repeatPasswordError">{{ repeatPasswordError }}</div>
-      </div>
+              <label for="userType">User Type</label>
+              <select id="userType" name="userType" [(ngModel)]="roles"
+                      class='form-input-register'>
+                <option value="{{ UserType.ROLE_USER }}">User</option>
+                <option value="{{ UserType.ROLE_ORGANIZER }}">Organizer</option>
+              </select>
 
-      <div class="form-group">
-        <label for="userType">User Type</label>
-        <select id="userType" name="userType" [(ngModel)]="selectedRole" (change)="changeRole()">
-          <option *ngFor="let role of roles">{{role}}</option>
-        </select>
-      </div>
-
-      <button type="submit" [disabled]="registrationForm.invalid">Register</button>
-    </form>
+            <button type="submit" [disabled]="registrationForm.invalid"
+              class='form-submit' id="form-submit-register"
+            >Регистрация</button>
+          </form>
   </div>
-</form>
-
+</div>

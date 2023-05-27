@@ -11,13 +11,21 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import {NgOptimizedImage} from "@angular/common";
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
+import { MainComponent } from './pages/main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterComponent,
+    MenuComponent,
+    SidebarComponent,
+    MainComponent
   ],
     imports: [
         BrowserModule,

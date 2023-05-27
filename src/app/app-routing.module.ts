@@ -5,6 +5,9 @@ import {LoginComponent} from "./pages/auth/login/login.component";
 import {RegistrationComponent} from "./pages/registration/registration.component";
 import {ForgotPasswordComponent} from "./pages/forgot-password/forgot-password.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
+import {MenuComponent} from "./pages/menu/menu.component";
+import {MainComponent} from "./pages/main/main.component";
+import {SidebarComponent} from "./pages/sidebar/sidebar.component";
 
 const routes: Routes = [
   {
@@ -23,6 +26,19 @@ const routes: Routes = [
     path: 'profile',
   component : ProfileComponent
 },
+  {
+    path: 'menu',
+    component : MenuComponent
+  },
+  {
+    path: 'sidebar',
+    component : SidebarComponent
+  },
+  {
+    path: 'main',
+    component : MainComponent
+  },
+
 {
   path: '',
   loadChildren: () => import('./main.guard').then(m => m.MainGuard),
