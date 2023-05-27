@@ -1,4 +1,5 @@
 import {Role} from "./role";
+import {Image} from "./image";
 
 export class UserDto {
   email: string;
@@ -6,5 +7,10 @@ export class UserDto {
   phone: string;
   role: Role[];
   rating: number;
-  imgUrls: string[];
+  imgIds: number[];
+  eventIds: number[];
+
+  constructor() {
+    this.imgIds = [];
+  }
 }

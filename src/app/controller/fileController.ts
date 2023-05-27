@@ -12,10 +12,13 @@ export class FileController {
   }
 
   uploadFile(file: File): Observable<string> {
-    const formData = new FormData();
-    formData.append('file', file);
+    console.log('qqqqqq');
+    return this.http.postFile<string>('upload', file);
+  }
 
-    return this.http.toPostService0<string>('/upload', formData);
+  downloadFile(fileId: string) {
+    console.log('asdddddddd');
+    return this.http.downloadFile('download', {fileId})
   }
 
 }

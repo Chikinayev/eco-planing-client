@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from "../lib/http.service";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
 import {User} from "../model/user";
 import {ResponseToken} from "../model/responseToken";
 
@@ -35,11 +33,4 @@ export class WebAuthController {
    postFile(file:File) {
     return this.http.postFile('asd', file);
    }
-
-
-  // logout() {
-  //   return this.http.getText('/logout')
-  //              .toPromise()
-  //              .then(() => null);
-  // }
 }
