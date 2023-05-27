@@ -4,6 +4,7 @@ import {MainGuard} from "./main.guard";
 import {LoginComponent} from "./pages/auth/login/login.component";
 import {RegistrationComponent} from "./pages/registration/registration.component";
 import {ForgotPasswordComponent} from "./pages/forgot-password/forgot-password.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'register',
   component : RegistrationComponent
+},
+  {
+    path: 'profile',
+  component : ProfileComponent
 },
 {
   path: '',

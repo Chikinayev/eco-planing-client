@@ -1,8 +1,9 @@
-import {Component, inject} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {User} from "../../model/user";
 import {Role} from "../../model/role";
 import {hasTwoWords} from "../../util/stringUtil";
 import {WebAuthController} from "../../controller/WebAuthController";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -11,14 +12,18 @@ import {WebAuthController} from "../../controller/WebAuthController";
 })
 export class RegistrationComponent {
   user: User = new User();
-  userType: string = Role.ROLE_USER;
+  selectedRole: Role;
+  // images: File[];
   nameError: string;
   passwordError: string;
   repeatPassword: string;
   repeatPasswordError: string;
+  roles: string[];
+  @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
   web: WebAuthController = inject(WebAuthController);
-  constructor() {
+  constructor(private readonly router: Router) {
+    this.roles = Object.values(Role);
   }
 
   onSubmit() {
@@ -26,8 +31,12 @@ export class RegistrationComponent {
       console.log('4444444')
       return;
     }
-    console.log('555555', this.user.images);
-    this.web.registration(this.user).subscribe();
+    // console.log('555555', this.images);
+    this.web.registration(this.user).toPromise().then(value => {
+      this.web.setToken(value.token);
+      const queryParams = value.userDto;
+        this.router.navigate(['profile'], {queryParams}).then()
+    });
   }
 
   private validateUserForm() {
@@ -54,6 +63,12 @@ export class RegistrationComponent {
     }
   }
 
+  addToRoles() {
+    if (this.selectedRole) {
+      this.user.roles.push(this.selectedRole);
+    }
+  }
+
   validateEmailName() {
     if (!hasTwoWords(this.user.firstName)) {
       this.nameError = 'Минимум 2 слово'
@@ -68,33 +83,40 @@ export class RegistrationComponent {
 
   protected readonly UserType = Role;
 
-  onFileSelected(event: any) {
-    const file: File[] = event.target.files;
+  // onFileSelected(event: any) {
+  // const filesList: FileList = event.target.files;
+  // if (!this.images) {
+  //   this.images = [];
+  // }
+  // for (let i = 0; i < filesList.length; i++) {
+  //   const file: File | null = filesList.item(i);
+  //   if (file) {
+  //     this.images.push(file);
+  //   }
+  // }
+  //   if (this.fileInputRef) {
+  //     this.fileInputRef.nativeElement.value = '';
+  //   }
+  //
+  // console.log('www :: ', this.user);
+  // console.log('rrr :: ', this.images);
+  // }
 
-    const fileReader = new FileReader();
+  //   delImageUrl(file: File) {
+  //   if (this.images){
+  //     this.images = this.images.filter(value => value.name != file.name);
+  //   }
+  // }
+  //
+  //
+  // getImageUrl(file: File): string {
+  //   console.log('ppp :: ', file);
+  //   return URL.createObjectURL(file);
+  // }
 
-    fileReader.onload
 
-    console.log('rrrrrr :: ', event.target.files);
-    if (!this.user.images) {
-      this.user.images = [];
-    }
-    this.user.images.push(...file);
-    console.log('lenth :: ', this.user.images.length);
-
+  changeRole() {
+    this.user.roles. splice(0, this.user.roles.length);
+    this.addToRoles();
   }
-
-
-  delImageUrl(file: File) {
-    if (this.user.images){
-      this.user.images = this.user.images.filter(value => value.name != file.name);
-    }
-  }
-
-
-  getImageUrl(file: File): string {
-    return URL.createObjectURL(file);
-  }
-
-
 }

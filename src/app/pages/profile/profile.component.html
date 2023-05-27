@@ -1,0 +1,31 @@
+<div class="profile-container">
+  <h2>Профиль</h2>
+  <div>
+    <label>Email:</label>
+    <p>{{ profile.email }}</p>
+  </div>
+  <div>
+    <label>ФИО:</label>
+    <p>{{ profile.fio }}</p>
+  </div>
+  <div>
+    <label>Телефон:</label>
+    <p>{{ profile.phone }}</p>
+  </div>
+  <div>
+    <label>Роли:</label>
+    <ul>
+      <li *ngFor="let r of profile.role">{{ r }}</li>
+    </ul>
+  </div>
+  <div>
+    <label>Рейтинг:</label>
+    <p>{{ profile.rating }}</p>
+  </div>
+<!--  <div>-->
+<!--    <label>Фотографии:</label>-->
+<!--    <div *ngFor="let url of profile.imgUrls">-->
+<!--      <img [src]="url" alt="Фото профиля">-->
+<!--    </div>-->
+<!--  </div>-->
+</div>

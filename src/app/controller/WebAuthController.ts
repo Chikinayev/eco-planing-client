@@ -32,6 +32,11 @@ export class WebAuthController {
    }
 
 
+   postFile(file:File) {
+    return this.http.postFile('asd', file);
+   }
+
+
   // logout() {
   //   return this.http.getText('/logout')
   //              .toPromise()

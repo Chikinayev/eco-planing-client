@@ -1,15 +1,17 @@
-import {Image} from "./image";
 import {Role} from "./role";
+import {Image} from "./image";
 
 export class User {
   email: string;
   phoneNumber: string;
   firstName: string;
   lastName?: string;
-  images?: File[];
   rating?: number;
   password: string;
-  role: Role;
+  roles: Role[];
   city: string;
 
+  constructor() {
+    this.roles = []
+  }
 }

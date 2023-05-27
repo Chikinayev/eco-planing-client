@@ -1,4 +1,6 @@
+import {UserDto} from "./userDto";
+
 export class ResponseToken {
-  email: string;
+  userDto: UserDto;
   token: string;
 }

@@ -64,6 +64,22 @@ export class HttpService {
   }
 
 
+  public postFile<T>(path: string, file: File): Observable<T> {
+    const url = environment.urlPrefix + this.prefix;
+    const ob: OptionsBuilder = this.newOptionsBuilder();
+    const formData: FormData = new FormData();
+
+    formData.append('file', file, file.name);
+
+    return mapBody(this.http.post<T>(url + '/' + path, file, {
+      observe: 'response',
+      responseType: 'json',
+      headers: ob.headers,
+      params: ob.params,
+    }));
+  }
+
+
   get token(): string | null {
     return localStorage.getItem('token') || null;
   }

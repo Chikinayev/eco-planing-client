@@ -3,6 +3,7 @@ import {AuthController} from "../controller/AuthController";
 import {WebAuthController} from "../controller/WebAuthController";
 import {tap, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class LoginServices {
@@ -11,7 +12,8 @@ export class LoginServices {
 
   errorMessage: string;
 
-  constructor(private readonly auth: WebAuthController) {
+  constructor(private readonly auth: WebAuthController,
+              private readonly router: Router) {
   }
 
   login(email: string, password: string) {
@@ -24,6 +26,9 @@ export class LoginServices {
     this.auth.login(email, password).pipe(
       tap(value => {
         this.auth.setToken(value.token);
+
+        const queryParams = value.userDto;
+        this.router.navigate(['profile'], {queryParams}).then();
         console.log('ttttttttt :: ', value)}),
       catchError(err => {
         if (err.status === 403) {

@@ -10,12 +10,14 @@ import {LoginModule} from "./pages/auth/login/login.module";
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ProfileComponent } from './pages/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ProfileComponent
   ],
     imports: [
         BrowserModule,
