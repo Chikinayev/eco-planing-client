@@ -8,6 +8,7 @@ import {EventDto} from "../../model/eventDto";
 import {EventList} from "../../model/eventList";
 import {SubSink} from "../../util/SubSink";
 import {WebAuthController} from "../../controller/WebAuthController";
+import {LoginServices} from "../../services/login.services";
 
 @Component({
   selector: 'app-profile',
@@ -16,26 +17,31 @@ import {WebAuthController} from "../../controller/WebAuthController";
 })
 export class ProfileComponent implements OnDestroy{
 
-  profile: UserDto;
-  images: File[];
-  events: EventList[];
+  profile: UserDto = new UserDto();
+  images: File[] = [];
+  events: EventList[] = [];
   private readonly subs = new SubSink();
   @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
-  constructor(private readonly route: ActivatedRoute,
-              private readonly fileController: FileController,
+  constructor(private readonly fileController: FileController,
               private readonly eventController: EventController,
               private readonly router: Router,
-              private readonly web: WebAuthController) {
-    this.images = [];
-    this.events = [];
+              private readonly loginService: LoginServices) {
 
     console.log('wwwww');
-    this.subs.sink = this.web.loadAuthInfo().pipe(
+    this.init();
+  }
+
+
+  init() {
+    this.subs.sink = this.loginService.user$.pipe(
       tap(value => {
-        this.profile= value as UserDto;
-        this.getImageProfile();
-        this.getEvents();
+        console.log('aaaa', value)
+        if (value) {
+          this.profile= value as UserDto;
+          this.getImageProfile();
+          this.getEvents();
+        }
       })
     ).subscribe();
   }

@@ -39,7 +39,7 @@ export class EventComponent implements OnDestroy{
         }
       })
     ).subscribe();
-    this.loginService.user$.pipe(
+    this.subs.sink = this.loginService.user$.pipe(
       tap(value => {
         this.currentUser = value as UserDto;
 

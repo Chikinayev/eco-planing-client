@@ -21,6 +21,7 @@ export class LoginServices{
   }
 
   init() {
+    console.log('llllll')
     this.subs.sink =this.auth.loadAuthInfo().pipe(
       tap(value => {
         this.userSubject.next(value);
