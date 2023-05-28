@@ -1,6 +1,6 @@
 import {Image} from "../image";
 import {Role} from "../role";
-import {Event} from "../event";
+import {EventDto} from "../eventDto";
 
 export class PersonProfileDetails {
   email: string;
@@ -10,6 +10,6 @@ export class PersonProfileDetails {
   images: Image[];
   rating: number;
   role: Role;
-  subscriptions: Event[];
+  subscriptions: EventDto[];
 
 }

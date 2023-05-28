@@ -1,10 +1,14 @@
 import {Component, OnDestroy} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Event} from "../../model/event";
+import {ActivatedRoute, Router} from "@angular/router";
+import {EventDto} from "../../model/eventDto";
 import {SubSink} from "../../util/SubSink";
 import {LoginServices} from "../../services/login.services";
 import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
+import {WebAuthController} from "../../controller/WebAuthController";
+import {EventController} from "../../controller/eventController";
+import {catchError} from "rxjs/operators";
+
 
 @Component({
   selector: 'app-event',
@@ -12,20 +16,15 @@ import {UserDto} from "../../model/userDto";
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnDestroy{
-  event: Event;
+  event: EventDto = new EventDto();
 
   private readonly subs = new SubSink();
   currentUser: UserDto;
 
   constructor(private readonly route: ActivatedRoute,
-              private readonly loginService: LoginServices) {
-    this.loginService.user$.pipe(
-      tap(value => {
-        console.log('ssss :: ', value);
-        this.currentUser = value as UserDto;
-
-      })
-    ).subscribe();
+              private readonly loginService: LoginServices,
+              private readonly eventController: EventController,
+              private readonly router: Router) {
 
     this.init();
   }
@@ -33,14 +32,17 @@ export class EventComponent implements OnDestroy{
   init() {
     this.subs.sink = this.route.queryParams.pipe(
       tap(value => {
-        console.log('asss', value);
-        if (!!value) {
-          console.log('iiii :: ', value);
-          this.event = value as Event;
+        if (Object.keys(value).length !== 0) {
+          this.event = value as EventDto;
         } else {
-          console.log('asd')
-          this.event = new Event();
+          this.event = new EventDto();
         }
+      })
+    ).subscribe();
+    this.loginService.user$.pipe(
+      tap(value => {
+        this.currentUser = value as UserDto;
+
       })
     ).subscribe();
   }
@@ -54,6 +56,12 @@ export class EventComponent implements OnDestroy{
     this.event.createUser = this.currentUser;
     this.event.eventCreatedDate = new Date();
     console.log('Created Event:', this.event);
-
+    this.eventController.saveEvent(this.event)
+      .pipe(
+        tap(value => {
+            this.router.navigate(['profile']).then();
+        })
+      )
+      .subscribe();
   }
 }

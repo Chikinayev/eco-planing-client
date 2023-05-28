@@ -77,7 +77,7 @@
       <div *ngIf="!profile.imgIds">
         <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
       </div>
-      <div *ngFor="let personImage of images">-->
+      <div *ngFor="let personImage of images">
         <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
         <button (click)="delImageUrl(personImage)"></button>
       </div>

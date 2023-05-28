@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpService} from "../lib/http.service";
 import {User} from "../model/user";
 import {ResponseToken} from "../model/responseToken";
+import {UserDto} from "../model/userDto";
 
 @Injectable({ providedIn: 'root' })
 export class WebAuthController {
@@ -13,7 +14,7 @@ export class WebAuthController {
   }
 
   loadAuthInfo() {
-    return this.http.toPostService0('login', {email: 'saga', password: 'Maga'})
+    return this.http.toPostService0<UserDto>('userDto');
   }
 
    login(email: string, password: string) {

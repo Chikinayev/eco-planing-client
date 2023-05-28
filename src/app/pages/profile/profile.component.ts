@@ -4,9 +4,10 @@ import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
 import {FileController} from "../../controller/fileController";
 import {EventController} from "../../controller/eventController";
-import {Event} from "../../model/event";
+import {EventDto} from "../../model/eventDto";
 import {EventList} from "../../model/eventList";
 import {SubSink} from "../../util/SubSink";
+import {WebAuthController} from "../../controller/WebAuthController";
 
 @Component({
   selector: 'app-profile',
@@ -24,14 +25,15 @@ export class ProfileComponent implements OnDestroy{
   constructor(private readonly route: ActivatedRoute,
               private readonly fileController: FileController,
               private readonly eventController: EventController,
-              private readonly router: Router) {
+              private readonly router: Router,
+              private readonly web: WebAuthController) {
     this.images = [];
     this.events = [];
 
     console.log('wwwww');
-    this.subs.sink =  route.queryParams.pipe(
+    this.subs.sink = this.web.loadAuthInfo().pipe(
       tap(value => {
-        this.profile = value as UserDto;
+        this.profile= value as UserDto;
         this.getImageProfile();
         this.getEvents();
       })
@@ -82,7 +84,6 @@ export class ProfileComponent implements OnDestroy{
       this.fileInputRef.nativeElement.value = '';
     }
 
-  // console.log('www :: ', this.user);
   console.log('rrr :: ', this.images);
   }
 
