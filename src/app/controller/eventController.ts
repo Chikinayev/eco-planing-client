@@ -29,5 +29,9 @@ export class EventController{
     return this.http.toPostService0<void>('subscribe', {userId: userId, eventId: eventId});
   }
 
+  delEvent(userId:number, eventId:number) {
+    return this.http.toPostService0<void>('deleteEvent', {userId: userId, eventId: eventId});
+  }
+
 
 }
