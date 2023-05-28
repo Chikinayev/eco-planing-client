@@ -3,6 +3,9 @@ import {ActivatedRoute} from "@angular/router";
 import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
 import {FileController} from "../../controller/fileController";
+import {EventController} from "../../controller/eventController";
+import {Event} from "../../model/event";
+import {EventList} from "../../model/eventList";
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +16,14 @@ export class ProfileComponent {
 
   profile: UserDto;
   images: File[];
+  events: EventList[];
   @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
   constructor(private readonly route: ActivatedRoute,
-              private readonly fileController: FileController) {
+              private readonly fileController: FileController,
+              private readonly eventController: EventController) {
     this.images = [];
+    this.events = [];
 
     console.log('wwwww');
     route.queryParams.pipe(
@@ -45,14 +51,14 @@ export class ProfileComponent {
   getEvents() {
     if (this.profile.eventIds !== null && this.profile.eventIds !== undefined) {
       console.log('1111')
-      for (let i = 0; i < this.profile.eventIds.length; i++) {
-        console.log('222',this.profile.eventIds[i]);
-        this.fileController.downloadFile(this.profile.eventIds[i].toString()).pipe(
+        console.log('222',this.profile);
+        this.eventController.getEventById(this.profile.id).pipe(
           tap(value => {
-            this.images.push(new File([value.body], 'asd'))
+            if (!!value) {
+              this.events = value;
+            }
           })
         ).subscribe();
-      }
     }
   }
 
