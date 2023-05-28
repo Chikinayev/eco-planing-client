@@ -1,0 +1,17 @@
+<!-- event-form.component.html -->
+<form (submit)="createEvent()">
+  <h2>Create Event</h2>
+  <div>
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="event.title" required>
+  </div>
+  <div>
+    <label>Description:</label>
+    <textarea [(ngModel)]="event.description" required></textarea>
+  </div>
+  <div>
+    <label>City:</label>
+    <input type="text" [(ngModel)]="event.city" required>
+  </div>
+  <button type="submit">Create</button>
+</form>
