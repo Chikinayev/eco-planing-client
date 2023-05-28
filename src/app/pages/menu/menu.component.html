@@ -9,7 +9,7 @@
   </nav>
   <div class="login-reg">
     <div *ngIf="userName; else login">
-      <h1>{{userName}}</h1>
+      <p><strong>{{userName}}</strong></p>
     </div>
     <ng-template #login>
       <a href="#">Стать волонтером / Войти</a>
