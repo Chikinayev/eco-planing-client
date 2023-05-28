@@ -54,7 +54,7 @@ export class ProfileComponent implements OnDestroy{
 
   getEvents() {
       console.log('1111')
-        console.log('222',this.profile);
+        console.log('221232',this.profile);
         this.eventController.getEventById(this.profile.id).pipe(
           tap(value => {
             if (!!value) {
