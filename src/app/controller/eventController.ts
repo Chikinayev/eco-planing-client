@@ -14,7 +14,7 @@ export class EventController{
   }
 
   getEventById(eventId: number) {
-    return this.http.toPostService0<EventList[]>('eventsByID', eventId);
+    return this.http.toPostService0<EventList[]>('eventListByID', eventId);
   }
 
 
