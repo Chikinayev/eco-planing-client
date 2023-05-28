@@ -1,17 +1,4 @@
-<div class="container">
-  <header class="header">
-    <div class="logo">Eco Planing</div>
-    <nav class="menu">
-      <a href="">Главная</a>
-      <a href="">Организации</a>
-      <a href="">О нас</a>
-      <a href="">Контакты</a>
-    </nav>
-    <div class="login-reg">
-      <a href="#">{{profile.email}}</a>
-    </div>
-    <i class="fa-solid fa-bars mobile-menu"></i>
-  </header>
+<div class="wrapper-contend">
   <main class="content">
     <div class="content__title">Профиль</div>
     <div class="profile">
@@ -23,6 +10,14 @@
         <ul>
           <li *ngFor="let r of profile.role">{{ r }}</li>
         </ul>
+        <label>Фотографии:</label>
+        <div *ngIf="!profile.imgIds">
+          <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
+        </div>
+        <div *ngFor="let personImage of images">-->
+          <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
+          <button (click)="delImageUrl(personImage)"></button>
+        </div>
       </div>
       <div class="profile_content">
         <div class="profile_content_info">
@@ -72,38 +67,10 @@
           });
         }
       </script>
-
-      <label>Фотографии:</label>
-      <div *ngIf="!profile.imgIds">
-        <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
-      </div>
-      <div *ngFor="let personImage of images">
-        <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
-        <button (click)="delImageUrl(personImage)"></button>
-      </div>
-
     </div>
-    <!--  <div>-->
-    <!--    <label>Фотографии:</label>-->
-    <!--    <div *ngFor="let url of profile.imgUrls">-->
-    <!--      <img [src]="url" alt="Фото профиля">-->
-    <!--    </div>-->
-    <!--  </div>-->
+
   </main>
-  <div class="sidebar">
-    <div class="block-title">Поиск событий</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Названия" />
-      <button type="button">Найти</button>
-    </div>
-    <div class="block-title">Сортировка по локации</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Город" />
-      <button type="button">Сортировка</button>
-    </div>
+  <div class="sidebar-wrapper">
+    <app-sidebar></app-sidebar>
   </div>
-  <footer class="footer">
-    © ECO planing 2023 | Волонтерская платформа ;)
-  </footer>
 </div>
-

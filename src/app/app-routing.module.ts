@@ -21,6 +21,10 @@ const routes: Routes = [
     component : LoginComponent
   },
   {
+    path: 'menu',
+    component : MenuComponent
+  },
+  {
     path: 'forgot-password',
     component : ForgotPasswordComponent
   },
