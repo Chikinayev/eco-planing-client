@@ -1,0 +1,47 @@
+<div class="container">
+  <header class="header">
+    <div class="logo">Eco Planing</div>
+    <nav class="menu">
+      <a href="">Главная</a>
+      <a href="">Организации</a>
+      <a href="">О нас</a>
+      <a href="">Контакты</a>
+    </nav>
+    <div class="login-reg">
+      <a href="registration.html">Almaty volunters</a>
+    </div>
+  </header>
+  <main class="content">
+    <div class="event-form-container">
+      <form action="" method="post">
+        <h2>Добавить события</h2>
+        <input type="text" name="event_title" placeholder="Названия события" class="event-form-input" required>
+        <input type="text" name="description" placeholder="Описания события" class="event-form-input"  required>
+        <input type="text" name="location" placeholder="Локация события" class="event-form-input"  required>
+        Фото события: <input type="file" name="file1" class="event-form-input"  required>
+        Фото события: <input type="file" name="file2" class="event-form-input" >
+        Фото события: <input type="file" name="file3" class="event-form-input" >
+        <!-- <button type='submit' class='form-submit'>
+            Зарегистрироваться
+        </button>
+     -->
+        <input type="button" name="add" class="form-submit" value="Добавить событие">
+      </form>
+    </div>
+  </main>
+  <div class="sidebar">
+    <div class="block-title">Поиск событий</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Названия" />
+      <button type="button">Найти</button>
+    </div>
+    <div class="block-title">Сортировка по локации</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Город" />
+      <button type="button">Сортировка</button>
+    </div>
+  </div>
+  <footer class="footer">
+    © ECO planing 2023 | Волонтерская платформа ;)
+  </footer>
+</div>

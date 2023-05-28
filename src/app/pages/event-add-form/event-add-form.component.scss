@@ -1,0 +1,355 @@
+
+.title {
+  margin: 15px;
+}
+
+/* Layout */
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  grid-template-rows: 100px 1fr minmax(100px, auto);
+  grid-auto-rows: 50px;
+  gap: 10px;
+}
+#avatar{
+  width: 200px;
+}
+.container > * {
+  padding: 8px 10px;
+  background: white;
+  color: black;
+}
+
+/* Header */
+.header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  grid-column: span 2;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.header .logo {
+  padding: 6px 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  background: #04AA6D;
+  color:white;
+
+}
+.header .menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.header .login-reg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+.header .mobile-menu {
+  display: none;
+  font-size: 30px;
+}
+
+/* Content */
+.content {
+  grid-column: 1;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  min-height: 500px;
+}
+
+.content__title {
+  text-align: center;
+  font-weight: 500;
+  margin: 10px 0 15px;
+  font-size: 22px;
+}
+.content__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+/* profile */
+.profile{
+  display: flex;
+  border-style: groove;
+  gap:10px;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 330px;
+}
+.profile_title{
+  border-style: inherit;
+}
+.profile_content{
+  border-style: inherit;
+  width: 600px;
+}
+.profile_events{
+  margin-top:20px;
+}
+.profile_events_types{
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid;
+  margin-top: 20px;
+  gap: 10px;
+  justify-content: start;
+}
+.event_list{
+  display: none;
+  margin: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+  align-content: start;
+  justify-items: start;
+  justify-content: start;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.sidebar__list {
+  width: 100%;
+}
+
+.sidebar__list * + * {
+  border-top: 0.5px solid #3335;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+/* Footer */
+.footer {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* UI Components */
+.block-title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.block {
+  width: 100%;
+  text-transform: initial;
+  font-weight: 300;
+  font-size: 15px;
+  background: white;
+  color: #333;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-style: groove;
+
+}
+.block_flex {
+  display: flex;
+  gap: 5px;
+}
+input {
+  width: 100%;
+  flex-grow: 1;
+  padding: 5px;
+  outline: none;
+  border: 0.5px solid #3335;
+  border-radius: 2px;
+}
+button {
+  cursor: pointer;
+  background: #04AA6D;
+  color: white;
+  border: 0.5px solid #3335;
+  border-radius: 2px;
+}
+.card {
+  padding: 5px;
+  width: 100%;
+  color: #333;
+  background: white;
+  font-weight: 300;
+  font-size: 15px;
+  overflow: hidden;
+  border-radius: 5px;
+  border-style:groove;
+}
+.card__img {
+  border-radius: 5px;
+  height: 20vw;
+  min-height: 150px;
+  max-height: 250px;
+  background: var(--img) center / cover;
+}
+.card__content {
+  display: grid;
+  padding: 5px;
+}
+.card__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.card__desc {
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.card__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__rating {
+  opacity: 0.2;
+  letter-spacing: -1px;
+}
+
+.card__button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 25px;
+  margin: 10px auto 15px;
+  background: #04AA6D;
+  border-radius: 2px;
+  font-size: 15px;
+  color: white;
+}
+.event-form-container{
+  text-align: center;
+}
+.event-form-input{
+  margin: 10px 10px 10px 10px ;
+  height: 6vh;
+  max-width: 800px;
+}
+.form-submit-add-event,.form-submit{
+  margin: 10px 10px 10px 10px ;
+  color: white;
+  height: 6vh;
+  background-color: #04AA6D;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  max-width: 800px;
+}
+.form-submit:hover {
+  background-color: #048263;
+}
+.btn-add-event{
+  height: 5vh;
+  margin: 10px;
+}
+.event-info-img-container{
+  text-align: center;
+}
+.event-info-img{
+  height: 70vw;
+  min-height: 150px;
+  max-height: 300px;
+}
+.event-info-content{
+  margin: 20px;
+}
+.btn-edit-event,.btn-delete-event{
+  width: 50vh;
+  height: 4vh;
+}
+/* Container layout */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0;
+    max-width: 1000px;
+    grid-template-columns: 1fr 300px;
+  }
+  .content__title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    padding: 0;
+    max-width: 768px;
+    grid-template-columns: 1fr 250px;
+  }
+  .header .menu {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .content__title {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 4.5vw;
+  }
+  .container {
+    max-width: 480px;
+    grid-template-rows: 70px 1fr minmax(100px, auto);
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid black;
+  }
+  .header .menu {
+    display: none;
+  }
+  .header .login-reg {
+    margin-left: auto;
+  }
+  .header .mobile-menu {
+    display: block;
+  }
+  .sidebar {
+    grid-column: span 2;
+  }
+  .content {
+    grid-column: span 2;
+  }
+  .card__img {
+    min-height: 130px;
+  }
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 5vw;
+  }
+  .container {
+    width: 96vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr minmax(100px, auto);
+  }
+  .sidebar {
+    grid-column: span 2;
+  }
+  .content {
+    grid-column: span 2;
+  }
+  .card__img {
+    height: 30vw;
+  }
+}
+
+@media (max-width: 448px) {
+  .card__img {
+    height: 50vw;
+  }
+}
