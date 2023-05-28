@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {EventList} from "../../model/eventList";
+import {EventDto} from "../../model/eventDto";
+import {EventController} from "../../controller/eventController";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-main',
@@ -6,6 +10,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
+
+  eventList: EventDto[] = [];
+  constructor(private readonly eventController: EventController) {
+    this.init();
+  }
+
+  init() {
+    this.eventController.getAllEvent()
+      .pipe(
+        tap(value => {
+          if (value) {
+            console.log('addd ', value);
+            this.eventList = value;
+          }
+        })
+      )
+      .subscribe();
+  }
+
+
 
 }
 

@@ -9,6 +9,7 @@ export class EventDto {
   city: string;
   createUser: UserDto;
   subscribers?: UserDto[];
+  subscribersCount?: number;
   eventCreatedDate: Date;
   eventDay: Date;
   constructor() {

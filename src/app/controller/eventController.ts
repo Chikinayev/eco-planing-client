@@ -20,5 +20,9 @@ export class EventController{
     return this.http.toPostService0<void>('saveEvent', event);
   }
 
+  getAllEvent() {
+    return this.http.toPostService0<EventDto[]>('getEvents');
+  }
+
 
 }

@@ -34,8 +34,11 @@
 <!--          </ul>-->
 
 
-          <div *ngFor="let eventList of events">
-            {{eventList.title}}
+          <div *ngIf="events">
+            <div *ngFor="let eventList of events">
+              <p>{{eventList.title}}</p>
+              <p>{{eventList.eventDay}}</p>
+            </div>
           </div>
 
 
