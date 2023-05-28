@@ -34,16 +34,10 @@ export class ProfileComponent implements OnDestroy{
 
 
   init() {
-    this.subs.sink = this.loginService.user$.pipe(
-      tap(value => {
-        console.log('aaaa', value)
-        if (value) {
-          this.profile= value as UserDto;
-          this.getImageProfile();
-          this.getEvents();
-        }
-      })
-    ).subscribe();
+    this.profile = this.loginService.authInfo;
+    this.images = [];
+    this.getImageProfile();
+    this.getEvents();
   }
 
   getImageProfile() {
@@ -53,7 +47,9 @@ export class ProfileComponent implements OnDestroy{
         console.log('222',this.profile.imgIds[i]);
         this.subs.sink = this.fileController.downloadFile(this.profile.imgIds[i].toString()).pipe(
           tap(value => {
-            this.images.push(new File([value.body], 'asd'))
+            if(this.profile.imgIds.length >= this.images.length) {
+              this.images.push(new File([value.body], 'asd'))
+            }
           })
         ).subscribe();
       }
@@ -83,7 +79,7 @@ export class ProfileComponent implements OnDestroy{
     const file: File | null = filesList.item(i);
     if (file) {
       this.images.push(file);
-      this.fileController.uploadFile(file).subscribe();
+      this.subs.sink = this.fileController.uploadFile(file).subscribe();
     }
   }
     if (this.fileInputRef) {
@@ -111,5 +107,13 @@ export class ProfileComponent implements OnDestroy{
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  delEvent(eventId: number) {
+    this.subs.sink = this.eventController.delEvent(this.profile.id, eventId).pipe(
+      tap(value => {
+        this.init();
+      })
+    ).subscribe();
   }
 }

@@ -47,7 +47,8 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    component : MainComponent
+    loadChildren: ()=> import('./pages/main/main.module').then(m => m.MainModule),
+    canLoad:[MainGuard]
   },
 
   {

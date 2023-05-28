@@ -2,9 +2,12 @@
   <main class="content">
     <div class="content__title">Волонтерские события</div>
     <div class="content__cards">
-<!--      <div *ngFor="let eventList of events">-->
-<!--        {{eventList.title}}-->
-<!--      </div>-->
+      <div *ngFor="let event of eventList">
+        {{event.title}}
+        {{event.subscribersCount}}
+        {{event.description}}
+        <button (click)="subscribe(event.id)"></button>
+      </div>
 
       <div class="card">
         <a href="">

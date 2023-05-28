@@ -38,6 +38,7 @@
             <div *ngFor="let eventList of events">
               <p>{{eventList.title}}</p>
               <p>{{eventList.eventDay}}</p>
+              <button (click)="delEvent(eventList.id)">delete</button>
             </div>
           </div>
 
