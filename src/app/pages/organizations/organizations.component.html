@@ -1,17 +1,4 @@
-<div class="container">
-  <header class="header">
-    <div class="logo">Eco Planing</div>
-    <nav class="menu">
-      <a href="">Главная</a>
-      <a href="">Организации</a>
-      <a href="">О нас</a>
-      <a href="">Контакты</a>
-    </nav>
-    <div class="login-reg">
-      <a href="registration.html">Стать волонтером / Войти</a>
-    </div>
-    <i class="fa-solid fa-bars mobile-menu"></i>
-  </header>
+<div class="wrapper-contend">
   <main class="content">
     <div class="content__title">Волонтерские организации</div>
     <div class="content__cards">
@@ -19,7 +6,7 @@
         <div
           class="card__img"
           style="
-                  --img: url(./sos.png);
+                  --img: url(/src/app/images/sos.png);
                 "
         ></div>
         <div class="card__content">
@@ -38,7 +25,7 @@
         <div
           class="card__img"
           style="
-                  --img: url(./almaty-volunters.jpg);
+                  --img: url(/src/app/images/almaty-volunters.jpg);
                 "
         ></div>
         <div class="card__content">
@@ -55,7 +42,7 @@
         <div
           class="card__img"
           style="
-                  --img: url(./baurzhan.png);
+                  --img: url(/src/app/images/baurzhan.png);
                 "
         ></div>
         <div class="card__content">
@@ -69,19 +56,9 @@
       </div>
     </div>
   </main>
-  <div class="sidebar">
-    <div class="block-title">Поиск событий</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Названия" />
-      <button type="button">Найти</button>
-    </div>
-    <div class="block-title">Сортировка по локации</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Город" />
-      <button type="button">Сортировка</button>
-    </div>
+  <div class="sidebar-wrapper">
+    <app-sidebar></app-sidebar>
   </div>
-  <footer class="footer">
-    © ECO planing 2023 | Волонтерская платформа ;)
-  </footer>
 </div>
+
+

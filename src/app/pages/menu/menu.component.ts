@@ -47,4 +47,7 @@ export class MenuComponent {
   profile() {
     this.router.navigate(['profile']).then();
   }
+  loginIn(){
+    this.router.navigate(['login']).then();
+  }
 }

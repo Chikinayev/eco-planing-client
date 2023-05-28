@@ -1,4 +1,16 @@
+.a_menu{
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.a_logo{
+  cursor: pointer;
+  color:white;
 
+}
+.a_logo:hover {
+  color: #048263;
+}
 .header {
   display: flex;
   gap: 15px;
