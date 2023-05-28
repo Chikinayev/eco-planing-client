@@ -1,10 +1,104 @@
 
-
-  <div class="container">
-    <app-menu></app-menu>
-    <app-profile></app-profile>
-    <app-sidebar></app-sidebar>
-    <app-footer></app-footer>
+<div class="container">
+  <header class="header">
+    <div class="logo">Eco Planing</div>
+    <nav class="menu">
+      <a href="">Главная</a>
+      <a href="">Организации</a>
+      <a href="">О нас</a>
+      <a href="">Контакты</a>
+    </nav>
+    <div class="login-reg">
+      <a href="registration.html">Azamat</a>
+    </div>
+    <i class="fa-solid fa-bars mobile-menu"></i>
+  </header>
+  <main class="content">
+    <div class="content__title">Волонтерские события</div>
+    <div class="content__cards">
+      <div class="card">
+        <a href="">
+          <div
+            class="card__img"
+            style="
+                    --img: url(./taza-jol.jpg);
+                  "
+          ></div>
+          <div class="card__content">
+            <div class="card__title"><a href="/event.html">"Таза жол" акциясы</a></div>
+            <div class="card__desc">
+              "Таза жол" акциясы аясында Республикалық маңызы бар тас жолын қоқыстан тазалау.
+            </div>
+            <div class="card__info">
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a href="/event.html">
+          <div
+            class="card__img"
+            style="
+                    --img: url(./dala.jpg);
+                  "
+          ></div>
+          <div class="card__content">
+            <div class="card__title"><a href="/event.html">"Спасем нашу природу"</a></div>
+            <div class="card__desc">
+              Привет дорогой волонтер! Если ты: - студент 2-3 курсов,
+              либо в целом человек с кучей свободного времени - энергичный....
+            </div>
+            <div class="card__info">
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <div
+          class="card__img"
+          style="
+                  --img: url(./dvory.jpg);
+                "
+        ></div>
+        <div class="card__content">
+          <div class="card__title">"Қарттарға көмек" акциясы</div>
+          <div class="card__desc">
+            "Қарттарға көмек" акциясы аясында Алматы қаласының волонтерлері жалғызбасты қарттардың уй жаңдарынан...
+          </div>
+          <div class="card__info">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="sidebar">
+    <div class="block-title">Поиск событий</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Названия" />
+      <button type="button">Найти</button>
+    </div>
+    <div class="block-title">Сортировка по локации</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Город" />
+      <button type="button">Сортировка</button>
+    </div>
   </div>
+  <footer class="footer">
+    © ECO planing 2023 | Волонтерская платформа ;)
+  </footer>
+</div>
 
 
+<!--<div class="test">-->
+<!--  <app-menu></app-menu>-->
+<!--  <div class="content">-->
+<!--    <div class="test1">-->
+<!--      <app-profile></app-profile>-->
+<!--      <div class="test2">-->
+<!--        <app-sidebar></app-sidebar>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--  <app-footer></app-footer>-->
+<!--</div>-->
