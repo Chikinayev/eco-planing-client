@@ -9,7 +9,7 @@ import {SubSink} from "../util/SubSink";
 @Injectable({providedIn: 'root'})
 export class LoginServices{
 
-  authInfo: string;
+  authInfo: UserDto;
 
   private userSubject = new BehaviorSubject<UserDto>(null);
   user$: Observable<UserDto> = this.userSubject.asObservable();
@@ -27,7 +27,7 @@ export class LoginServices{
      const value = await this.auth.loadAuthInfo().toPromise();
     if (value){
       this.userSubject.next(value);
-      this.authInfo = value.fio;
+      this.authInfo = value;
     }
   }
 

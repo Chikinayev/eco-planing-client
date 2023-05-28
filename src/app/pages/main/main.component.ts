@@ -3,6 +3,7 @@ import {EventList} from "../../model/eventList";
 import {EventDto} from "../../model/eventDto";
 import {EventController} from "../../controller/eventController";
 import {tap} from "rxjs";
+import {LoginServices} from "../../services/login.services";
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,8 @@ import {tap} from "rxjs";
 export class MainComponent {
 
   eventList: EventDto[] = [];
-  constructor(private readonly eventController: EventController) {
+  constructor(private readonly eventController: EventController,
+              private readonly loginServices: LoginServices) {
     this.init();
   }
 
@@ -27,6 +29,13 @@ export class MainComponent {
         })
       )
       .subscribe();
+  }
+
+  subscribe(id: number) {
+    const user =  this.loginServices.authInfo;
+    console.log('111 ', user);
+    this.eventController.subscribe(user.id, id);
+
   }
 
 
