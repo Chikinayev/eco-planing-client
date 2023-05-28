@@ -2,14 +2,14 @@
 <header class="header">
   <div class="logo">Eco Planing</div>
   <nav class="menu">
-    <a href="">Главная</a>
-    <a href="">Организации</a>
+    <a (click)="main()">Главная</a>
+    <a (click)="organizations()">Организации</a>
     <a href="">О нас</a>
     <a href="">Контакты</a>
   </nav>
   <div class="login-reg">
     <div *ngIf="userName; else login">
-      <h1>{{userName}}</h1>
+      <h1 (click)="profile()">{{userName}}</h1>
       <input type="submit" (click)="logout()">
     </div>
     <ng-template #login>

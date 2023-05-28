@@ -35,4 +35,16 @@ export class MenuComponent {
     this.router.navigate(['/login']).then();
 
   }
+
+  main() {
+    this.router.navigate(['/main']).then();
+  }
+
+  organizations() {
+    this.router.navigate(['organizations']).then();
+  }
+
+  profile() {
+    this.router.navigate(['profile']).then();
+  }
 }
