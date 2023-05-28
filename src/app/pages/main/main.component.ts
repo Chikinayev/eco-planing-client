@@ -34,7 +34,7 @@ export class MainComponent {
   subscribe(id: number) {
     const user =  this.loginServices.authInfo;
     console.log('111 ', user);
-    this.eventController.subscribe(user.id, id);
+    this.eventController.subscribe(user.id, id).subscribe();
 
   }
 
