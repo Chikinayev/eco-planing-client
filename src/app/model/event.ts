@@ -7,7 +7,7 @@ export class Event {
   title: string;
   description: string;
   city: string;
-  images: Image[];
   createUser: User;
-  subscribers: User[];
+    subscribers: User[];
+    eventCreatedDate: Date;
 }

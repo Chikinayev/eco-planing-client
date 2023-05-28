@@ -4,6 +4,7 @@ import {environment} from "../../../environments/environment";
 import {mapBody} from "./RxJsUtil";
 import {OptionsBuilder} from "./OptionBuilder";
 import {Injectable} from "@angular/core";
+import {map} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
@@ -51,7 +52,6 @@ export class HttpService {
 
     {
       ob.appendHeader('Content-Type', 'application/json');
-      // ob.appendHeader('Authorization', 'wwwww');
       ob.appendParamsFromKeyValue(model);
     }
 
@@ -64,6 +64,21 @@ export class HttpService {
   }
 
 
+  public downloadFile(path: string, fileId:{[key: string]: any} ): Observable<HttpResponse<Blob>> {
+    const url = environment.urlPrefix + this.prefix;
+    const ob: OptionsBuilder = this.newOptionsBuilder();
+    ob.appendParamsFromKeyValue(fileId)
+
+    return this.http.get(url + '/' + path, {
+      observe: 'response',
+      responseType: 'blob',
+      headers: ob.headers,
+      params: ob.params,
+    })
+  }
+
+
+
   public postFile<T>(path: string, file: File): Observable<T> {
     const url = environment.urlPrefix + this.prefix;
     const ob: OptionsBuilder = this.newOptionsBuilder();
@@ -71,7 +86,7 @@ export class HttpService {
 
     formData.append('file', file, file.name);
 
-    return mapBody(this.http.post<T>(url + '/' + path, file, {
+    return mapBody(this.http.post<T>(url + '/' + path, formData, {
       observe: 'response',
       responseType: 'json',
       headers: ob.headers,

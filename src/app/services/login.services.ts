@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {AuthController} from "../controller/AuthController";
 import {WebAuthController} from "../controller/WebAuthController";
 import {tap, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
