@@ -8,6 +8,11 @@
     <a href="">Контакты</a>
   </nav>
   <div class="login-reg">
-    <a href="#">Стать волонтером / Войти</a>
+    <div *ngIf="userName; else login">
+      <h1>{{userName}}</h1>
+    </div>
+    <ng-template #login>
+      <a href="#">Стать волонтером / Войти</a>
+    </ng-template>
   </div>
 </header>
