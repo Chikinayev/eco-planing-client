@@ -18,7 +18,7 @@ import {OrganizatorProfileComponent} from "./pages/organizator-profile/organizat
 const routes: Routes = [
   {
     path: 'login',
-    component : LoginComponent
+    loadChildren: ()=> import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule),
   },
   {
     path: 'menu',
@@ -34,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component : ProfileComponent
+    loadChildren: ()=> import('./pages/profile/profile.module').then(m => m.ProfileModule),
+    canLoad:[MainGuard]
   },
   {
     path: 'sidebar',
@@ -65,15 +66,11 @@ const routes: Routes = [
     path: 'organizator-profile',
     component: OrganizatorProfileComponent
   },
-  {
-    path: '',
-    loadChildren: () => import('./main.guard').then(m => m.MainGuard),
-    canLoad: [MainGuard],
-  },{ path: '**', redirectTo: '' }];
+  { path: '**', redirectTo: '' }];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { scrollPositionRestoration:'enabled'})
   ],
   exports: [RouterModule]
 })

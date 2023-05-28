@@ -9,6 +9,8 @@ import {SubSink} from "../util/SubSink";
 @Injectable({providedIn: 'root'})
 export class LoginServices{
 
+  authInfo: string;
+
   private userSubject = new BehaviorSubject<UserDto>(null);
   user$: Observable<UserDto> = this.userSubject.asObservable();
 
@@ -20,13 +22,13 @@ export class LoginServices{
     this.init();
   }
 
-  init() {
+  async init() {
     console.log('llllll')
-    this.subs.sink =this.auth.loadAuthInfo().pipe(
-      tap(value => {
-        this.userSubject.next(value);
-      })
-    ).subscribe();
+     const value = await this.auth.loadAuthInfo().toPromise();
+    if (value){
+      this.userSubject.next(value);
+      this.authInfo = value.fio;
+    }
   }
 
   login(email: string, password: string, errorMessage: string) {

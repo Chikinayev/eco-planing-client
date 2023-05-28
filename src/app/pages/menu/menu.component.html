@@ -10,6 +10,7 @@
   <div class="login-reg">
     <div *ngIf="userName; else login">
       <h1>{{userName}}</h1>
+      <input type="submit" (click)="logout()">
     </div>
     <ng-template #login>
       <a href="#">Стать волонтером / Войти</a>

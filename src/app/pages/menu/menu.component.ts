@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {LoginServices} from "../../services/login.services";
 import {tap} from "rxjs";
+import {WebAuthController} from "../../controller/WebAuthController";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +12,9 @@ import {tap} from "rxjs";
 export class MenuComponent {
   userName: string;
 
-  constructor(private readonly loginServices: LoginServices) {
+  constructor(private readonly loginServices: LoginServices,
+              private readonly web: WebAuthController,
+              private readonly router: Router) {
     this.init();
   }
 
@@ -25,4 +29,10 @@ export class MenuComponent {
       subscribe();
   }
 
+  logout() {
+    this.web.setToken(undefined);
+    this.userName = undefined;
+    this.router.navigate(['/login']).then();
+
+  }
 }
