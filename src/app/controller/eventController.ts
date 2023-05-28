@@ -26,7 +26,7 @@ export class EventController{
 
   subscribe(userId:number, eventId:number) {
     console.log('222')
-    return this.http.toPostService0<void>('subscribe', {userId: userId, eventId: eventId}).subscribe()
+    return this.http.toPostService0<void>('subscribe', {userId: userId, eventId: eventId});
   }
 
 
