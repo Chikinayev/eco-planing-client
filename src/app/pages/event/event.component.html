@@ -1,21 +1,29 @@
-<!-- event-form.component.html -->
-<form (submit)="createEvent()">
-  <h2>Create Event</h2>
-  <div>
-    <label>Title:</label>
-    <input [(ngModel)]="event.title" name="title" required>
-  </div>
-  <div>
-    <label>Description:</label>
-    <textarea [(ngModel)]="event.description" name="description" required></textarea>
-  </div>
-  <div>
-    <label>City:</label>
-    <input [(ngModel)]="event.city" name="city" required>
-  </div>
-  <div>
-    <label>Event Day:</label>
-    <input type="datetime-local" [(ngModel)]="event.eventDay" name="day">
-  </div>
-  <button type="submit">Create</button>
-</form>
+<div class="wrapper-contend">
+  <main class="content">
+      <div class="event-form-container">
+        <form (submit)="createEvent()">
+          <h2>Добавить события</h2>
+          <input type="text" placeholder="Названия события"
+                 class="event-form-input" [(ngModel)]="event.title"
+                 name="title" required>
+          <textarea  class="event-form-input"
+                     placeholder="Описания события"[(ngModel)]="event.description"
+                     name="description" required></textarea>
+          <input type="text" class="event-form-input"
+                 placeholder="Локация события" [(ngModel)]="event.city" name="city"
+                 required>
+          <input type="datetime-local" [(ngModel)]="event.eventDay" name="day">
+<!--          Фото события: <input type="file" name="file1" class="event-form-input"  required>-->
+<!--          Фото события: <input type="file" name="file2" class="event-form-input" >-->
+<!--          Фото события: <input type="file" name="file3" class="event-form-input" >-->
+
+          <button type="submit" class="form-submit btn">Добавить событие</button>
+
+        </form>
+      </div>
+  </main>
+    <div class="sidebar-wrapper">
+      <app-sidebar></app-sidebar>
+    </div>
+
+</div>

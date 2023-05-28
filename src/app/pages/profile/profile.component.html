@@ -24,27 +24,30 @@
           <h3>Обо мне</h3>
           {{ profile.description }}
         </div>
+        <button (click)="createEvent()"> Добавить Event</button>
         <div class="profile_events">
           <h3>Волонтерская деятельность</h3>
-          <ul  id="event_type" class="profile_events_types">
-            <li class="event">Планируемые события</li>
-            <li class="event">Реализованные события</li>
-            <li class="event">Пропущенные события</li>
-          </ul>
-
-          <button (click)="createEvent()"> Добавить Event</button>
+<!--          <ul  id="event_type" class="profile_events_types">-->
+<!--            <li class="event">Планируемые события</li>-->
+<!--            <li class="event">Реализованные события</li>-->
+<!--            <li class="event">Пропущенные события</li>-->
+<!--          </ul>-->
 
 
-
-          <div class="event_list" >
-            нет планируемых событий
+          <div *ngFor="let eventList of events">
+            {{eventList.title}}
           </div>
-          <div class="event_list">
-            нет реализованных событий
-          </div>
-          <div class="event_list">
-            нет организованных событий
-          </div>
+
+
+<!--          <div class="event_list" >-->
+<!--            нет планируемых событий-->
+<!--          </div>-->
+<!--          <div class="event_list">-->
+<!--            нет реализованных событий-->
+<!--          </div>-->
+<!--          <div class="event_list">-->
+<!--            нет организованных событий-->
+<!--          </div>-->
         </div>
 
       </div>
@@ -68,9 +71,7 @@
         }
       </script>
     </div>
-    <div *ngFor="let eventList of events">
-      {{eventList.title}}
-    </div>
+
 
   </main>
   <div class="sidebar-wrapper">
