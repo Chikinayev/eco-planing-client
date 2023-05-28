@@ -27,9 +27,7 @@
       <div class="profile_content">
         <div class="profile_content_info">
           <h3>Обо мне</h3>
-          Организатор масштабных мероприятии,
-          опыть более 2 лет. Имею свою ивент агентство
-          по организация и оформление мероприятии.
+          {{ profile.description }}
         </div>
         <div class="profile_events">
           <h3>Волонтерская деятельность</h3>
@@ -38,6 +36,8 @@
             <li class="event">Реализованные события</li>
             <li class="event">Пропущенные события</li>
           </ul>
+
+          <button (click)="createEvent()"> Добавить Event</button>
 
 
 

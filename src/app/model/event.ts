@@ -1,5 +1,5 @@
-import {Image} from "./image";
 import {User} from "./user";
+import {UserDto} from "./userDto";
 
 
 export class Event {
@@ -7,7 +7,7 @@ export class Event {
   title: string;
   description: string;
   city: string;
-  createUser: User;
-    subscribers: User[];
-    eventCreatedDate: Date;
+  createUser: UserDto;
+  subscribers: UserDto[];
+  eventCreatedDate: Date;
 }

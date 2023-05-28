@@ -8,6 +8,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {MenuComponent} from "./pages/menu/menu.component";
 import {MainComponent} from "./pages/main/main.component";
 import {SidebarComponent} from "./pages/sidebar/sidebar.component";
+import {EventComponent} from "./pages/event/event.component";
 import {OrganizationsComponent} from "./pages/organizations/organizations.component";
 import {EventInfoComponent} from "./pages/event-info/event-info.component";
 import {EventAddFormComponent} from "./pages/event-add-form/event-add-form.component";
@@ -31,13 +32,13 @@ const routes: Routes = [
     path: 'profile',
     component : ProfileComponent
   },
-  // {
-  //   path: 'menu',
-  //   component : MenuComponent
-  // },
   {
     path: 'sidebar',
     component : SidebarComponent
+  },
+  {
+    path: 'event',
+    component : EventComponent
   },
   {
     path: 'main',

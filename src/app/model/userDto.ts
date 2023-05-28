@@ -9,7 +9,7 @@ export class UserDto {
   role: Role[];
   rating: number;
   imgIds: number[];
-  eventIds: number[];
+  description: string;
 
   constructor() {
     this.imgIds = [];

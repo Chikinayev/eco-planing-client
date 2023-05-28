@@ -15,6 +15,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { MainComponent } from './pages/main/main.component';
+import { EventComponent } from './pages/event/event.component';
 import { OrganizationsComponent } from './pages/organizations/organizations.component';
 import { EventInfoComponent } from './pages/event-info/event-info.component';
 import { EventAddFormComponent } from './pages/event-add-form/event-add-form.component';
@@ -30,6 +31,7 @@ import { OrganizatorProfileComponent } from './pages/organizator-profile/organiz
     MenuComponent,
     SidebarComponent,
     MainComponent,
+    EventComponent,
     OrganizationsComponent,
     EventInfoComponent,
     EventAddFormComponent,

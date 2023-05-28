@@ -1,11 +1,14 @@
 import {Injectable} from "@angular/core";
 import {WebAuthController} from "../controller/WebAuthController";
-import {tap, throwError} from "rxjs";
+import {BehaviorSubject, Observable, tap, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {UserDto} from "../model/userDto";
 
 @Injectable({providedIn: 'root'})
 export class LoginServices {
+  private userSubject = new BehaviorSubject<UserDto>(null);
+  user$: Observable<UserDto> = this.userSubject.asObservable();
 
   constructor(private readonly auth: WebAuthController,
               private readonly router: Router) {
@@ -21,7 +24,7 @@ export class LoginServices {
     this.auth.login(email, password).pipe(
       tap(value => {
         this.auth.setToken(value.token);
-
+        this.userSubject.next(value.userDto);
         const queryParams = value.userDto;
         this.router.navigate(['profile'], {queryParams}).then();
         console.log('ttttttttt :: ', value)}),
@@ -35,14 +38,6 @@ export class LoginServices {
         return throwError(err);
       })
     ).subscribe();
-  }
-
-  validateLogin(email: string, password: string) {
-
-  }
-
-  validateEmail() {
-
   }
 
 

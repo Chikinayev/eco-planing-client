@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit{
   email: string;
   password: string;
   errorMessage: string;
-  web: WebAuthController = inject(WebAuthController);
+  // web: WebAuthController = inject(WebAuthController);
   constructor(private readonly router: Router,
               private loginService: LoginServices) {
 
