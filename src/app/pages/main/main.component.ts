@@ -34,7 +34,12 @@ export class MainComponent {
   subscribe(id: number) {
     const user =  this.loginServices.authInfo;
     console.log('111 ', user);
-    this.eventController.subscribe(user.id, id).subscribe();
+    console.log('aaa', id)
+    this.eventController.subscribe(user.id, id).pipe(
+      tap(value => {
+        this.init();
+      })
+    ).subscribe();
 
   }
 

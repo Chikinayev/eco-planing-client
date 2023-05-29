@@ -1,68 +1,36 @@
 <div class="wrapper-contend">
   <main class="content">
     <div class="content__title">Волонтерские события</div>
-    <div class="content__cards">
-      <div *ngFor="let event of eventList">
-        {{event.title}}
-        {{event.subscribersCount}}
-        {{event.description}}
-        <button (click)="subscribe(event.id)"></button>
-      </div>
+<!--    <div class="content__cards">-->
+<!--      <div *ngFor="let eventList of events">-->
+<!--        {{eventList.title}}-->
+<!--      </div>-->
+      <div *ngIf="eventList" class="content__cards">
 
-      <div class="card">
-        <a href="">
-          <div
-            class="card__img"
-            style="
+        <div *ngFor="let event of eventList" class="card">
+
+              <div
+                class="card__img"
+                style="
                     --img: url(./taza-jol.jpg);
                   "
-          ></div>
-          <div class="card__content">
-            <div class="card__title"><a href="/event.html">"Таза жол" акциясы</a></div>
-            <div class="card__desc">
-              "Таза жол" акциясы аясында Республикалық маңызы бар тас жолын қоқыстан тазалау.
-            </div>
-            <div class="card__info">
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="card">
-        <a href="/event.html">
-          <div
-            class="card__img"
-            style="
-                    --img: url(./dala.jpg);
-                  "
-          ></div>
-          <div class="card__content">
-            <div class="card__title"><a href="/event.html">"Спасем нашу природу"</a></div>
-            <div class="card__desc">
-              Привет дорогой волонтер! Если ты: - студент 2-3 курсов,
-              либо в целом человек с кучей свободного времени - энергичный....
-            </div>
-            <div class="card__info">
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="card">
-        <div
-          class="card__img"
-          style="
-                  --img: url(./dvory.jpg);
-                "
-        ></div>
-        <div class="card__content">
-          <div class="card__title">"Қарттарға көмек" акциясы</div>
-          <div class="card__desc">
-            "Қарттарға көмек" акциясы аясында Алматы қаласының волонтерлері жалғызбасты қарттардың уй жаңдарынан...
-          </div>
-          <div class="card__info">
-          </div>
+              ></div>
+              <div class="card__content">
+                <div class="card__title"><a href="/event.html">{{event.title}}</a></div>
+                <div class="card__desc">
+                  {{event.description}}
+                </div>
+                <div class="card__info">
+                  {{event.eventDay}}
+                </div>
+                <p>{{event.subscribersCount}}</p>
+                <button (click)="subscribe(event.id)" class="btn-sub">Записаться</button>
+              </div>
+
         </div>
       </div>
-    </div>
+
+<!--    </div>-->
   </main>
   <div class="sidebar-wrapper">
     <app-sidebar></app-sidebar>

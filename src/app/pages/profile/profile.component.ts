@@ -34,10 +34,15 @@ export class ProfileComponent implements OnDestroy{
 
 
   init() {
-    this.profile = this.loginService.authInfo;
-    this.images = [];
-    this.getImageProfile();
-    this.getEvents();
+    this.loginService.init().then(
+      value => {
+        this.profile = this.loginService.authInfo;
+        this.images = [];
+        this.getImageProfile();
+        this.getEvents();
+      }
+    )
+
   }
 
   getImageProfile() {

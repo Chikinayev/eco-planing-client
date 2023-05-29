@@ -20,6 +20,7 @@ import { OrganizationsComponent } from './pages/organizations/organizations.comp
 import { EventInfoComponent } from './pages/event-info/event-info.component';
 import { EventAddFormComponent } from './pages/event-add-form/event-add-form.component';
 import { OrganizatorProfileComponent } from './pages/organizator-profile/organizator-profile.component';
+import { AboutComponent } from './pages/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { OrganizatorProfileComponent } from './pages/organizator-profile/organiz
     OrganizationsComponent,
     EventInfoComponent,
     EventAddFormComponent,
-    OrganizatorProfileComponent
+    OrganizatorProfileComponent,
+    AboutComponent
   ],
     imports: [
         BrowserModule,

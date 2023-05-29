@@ -14,6 +14,7 @@ import {EventInfoComponent} from "./pages/event-info/event-info.component";
 import {EventAddFormComponent} from "./pages/event-add-form/event-add-form.component";
 
 import {OrganizatorProfileComponent} from "./pages/organizator-profile/organizator-profile.component";
+import {AboutComponent} from "./pages/about/about.component";
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'event-add-form',
     component : EventAddFormComponent
+  },
+  {
+    path: 'about',
+    component : AboutComponent
   },
   {
     path: 'organizator-profile',
