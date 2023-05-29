@@ -16,6 +16,10 @@ export class EventController{
   getEventById(eventId: number) {
     return this.http.toPostService0<EventList[]>('eventListByID', eventId);
   }
+
+  getEventDtoById(eventId: number) {
+    return this.http.toPostService0<EventDto>('eventDtoByID', eventId);
+  }
   saveEvent(event: EventDto) {
     return this.http.toPostService0<void>('saveEvent', event);
   }

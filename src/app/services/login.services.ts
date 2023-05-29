@@ -38,7 +38,7 @@ export class LoginServices{
     if (!password) {
       return;
     }
-    this.auth.login(email, password).pipe(
+    this.subs.sink = this.auth.login(email, password).pipe(
       tap(value => {
         this.auth.setToken(value.token);
           if (value.userDto){

@@ -4,6 +4,7 @@ import {EventDto} from "../../model/eventDto";
 import {EventController} from "../../controller/eventController";
 import {tap} from "rxjs";
 import {LoginServices} from "../../services/login.services";
+import {Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,8 @@ export class MainComponent {
 
   eventList: EventDto[] = [];
   constructor(private readonly eventController: EventController,
-              private readonly loginServices: LoginServices) {
+              private readonly loginServices: LoginServices,
+              private readonly router: Router) {
     this.init();
   }
 
@@ -44,6 +46,9 @@ export class MainComponent {
   }
 
 
-
+  getEvent(id: number) {
+    const queryParams = {id: id};
+    this.router.navigate(['event-info'], {queryParams}).then();
+  }
 }
 
