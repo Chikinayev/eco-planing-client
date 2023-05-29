@@ -21,4 +21,8 @@ export class FileController {
     return this.http.downloadFile('download', {fileId})
   }
 
+  deleteFile(userId) {
+    return this.http.toPostService0<void>('delete', {userId})
+  }
+
 }

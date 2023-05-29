@@ -18,6 +18,7 @@ export class RegistrationComponent {
   passwordError: string;
   repeatPassword: string;
   repeatPasswordError: string;
+  phoneError: string;
   roles: string[];
   @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
@@ -43,8 +44,9 @@ export class RegistrationComponent {
 
     this.validateEmailName();
     this.validatePassword();
+    this.validatePhone();
 
-    return !(this.passwordError || this.nameError || this.repeatPasswordError);
+    return !(this.passwordError || this.nameError || this.repeatPasswordError || this.phoneError);
 
   }
   private validatePassword() {
@@ -60,8 +62,22 @@ export class RegistrationComponent {
     }
     if (!this.user.password.match('[A-Za-z0-9]*')){
       this.passwordError = 'Обязательно к заплонению';
+    }else {
+      this.passwordError = '';
     }
   }
+
+  validatePhone() {
+    if (!this.user.phoneNumber.match('/^\d{11}$/')) {
+      console.log('aaaaa')
+      this.phoneError = 'Длина номера должен быть 12'
+    }else {
+      this.phoneError = ''
+    }
+
+  }
+
+
 
   addToRoles() {
     if (this.selectedRole) {

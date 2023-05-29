@@ -20,6 +20,7 @@
                      name="phone" [(ngModel)]="user.phoneNumber"
                      placeholder="телефон" class='form-input-register'
                      required>
+            <div class="error-message" *ngIf="phoneError">{{ phoneError }}</div>
               <input type="text" id="city"
                      name="city" [(ngModel)]="user.city"
                      placeholder="город" class='form-input-register'

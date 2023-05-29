@@ -98,6 +98,7 @@ export class ProfileComponent implements OnDestroy{
     if (this.images){
       this.images = this.images.filter(value => value.name != file.name);
     }
+    this.subs.sink = this.fileController.deleteFile(this.profile.id).subscribe();
   }
 
 
