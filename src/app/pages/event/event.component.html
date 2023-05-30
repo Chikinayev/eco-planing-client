@@ -13,7 +13,12 @@
                  placeholder="Локация события" [(ngModel)]="event.city" name="city"
                  required>
           <input type="datetime-local" [(ngModel)]="event.eventDay" name="day">
-<!--          Фото события: <input type="file" name="file1" class="event-form-input"  required>-->
+          Фото события:
+          <input type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
+          <div *ngFor="let personImage of event.eventPhotos">
+            <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
+<!--            <button (click)="delImageUrl(personImage)">Удалить аву</button>-->
+          </div>
 <!--          Фото события: <input type="file" name="file2" class="event-form-input" >-->
 <!--          Фото события: <input type="file" name="file3" class="event-form-input" >-->
 

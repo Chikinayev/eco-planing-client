@@ -12,6 +12,7 @@ export class EventDto {
   subscribersCount?: number;
   eventCreatedDate: Date;
   eventDay: Date;
+  eventPhotos: File[];
   constructor() {
   }
 }

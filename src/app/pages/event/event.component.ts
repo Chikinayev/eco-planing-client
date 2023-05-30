@@ -17,9 +17,10 @@ import {catchError} from "rxjs/operators";
 })
 export class EventComponent implements OnDestroy{
   event: EventDto = new EventDto();
-
+  eventPhotos: File;
   private readonly subs = new SubSink();
   currentUser: UserDto;
+
 
   constructor(private readonly route: ActivatedRoute,
               private readonly loginService: LoginServices,
@@ -55,13 +56,32 @@ export class EventComponent implements OnDestroy{
   createEvent() {
     this.event.createUser = this.currentUser;
     this.event.eventCreatedDate = new Date();
+    // this.event.eventDay = this.event.eventDay;
     console.log('Created Event:', this.event);
     this.eventController.saveEvent(this.event)
       .pipe(
         tap(value => {
+          console.log('qqq :: ', value);
+          this.eventController.saveMultipart(this.eventPhotos, value).subscribe()
             this.router.navigate(['profile']).then();
         })
       )
       .subscribe();
   }
+
+  onFileSelected(event: any) {
+    const filesList: FileList = event.target.files;
+    const file: File | null = filesList.item(0);
+    if (file) {
+      this.eventPhotos = file;
+    }
+  }
+
+  getImageUrl(file: File): string {
+    console.log('ppp :: ', file);
+    return URL.createObjectURL(file);
+  }
+
+
+
 }

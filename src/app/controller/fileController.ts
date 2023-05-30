@@ -25,4 +25,17 @@ export class FileController {
     return this.http.toPostService0<void>('delete', {userId})
   }
 
+  // postMultipart(keyValue: any) {
+  //   const input = new FormData();
+  //   for (const key of Object.keys(keyValue)) {
+  //     const value = keyValue[key];
+  //     if (value !== undefined && value !== null) {
+  //       input.append(key, keyValue);
+  //     }
+  //   }
+  //   return this.http.toPostService0<void>('upload', input);
+  // }
+
+
+
 }

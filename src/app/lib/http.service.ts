@@ -63,6 +63,22 @@ export class HttpService {
     }));
   }
 
+  public toPostFileService<T>(path: string, formData: FormData): Observable<T> {
+    const url = environment.urlPrefix + this.prefix;
+    const ob: OptionsBuilder = this.newOptionsBuilder();
+
+    return mapBody(this.http.post<T>(url + '/' + path, formData, {
+      observe: 'response',
+      responseType: 'json',
+      headers: ob.headers,
+      params: ob.params,
+    }));
+  }
+
+
+
+
+
 
   public downloadFile(path: string, fileId:{[key: string]: any} ): Observable<HttpResponse<Blob>> {
     const url = environment.urlPrefix + this.prefix;
