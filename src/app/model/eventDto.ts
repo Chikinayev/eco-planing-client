@@ -13,6 +13,8 @@ export class EventDto {
   eventCreatedDate: Date;
   eventDay: Date;
   eventPhotos: File[];
+  imageId: number;
+  imageUrl: string;
   constructor() {
   }
 }
