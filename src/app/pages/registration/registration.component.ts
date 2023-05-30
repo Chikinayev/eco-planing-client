@@ -68,10 +68,10 @@ export class RegistrationComponent {
   }
 
   validatePhone() {
-    if (!this.user.phoneNumber.match('/^\d{11}$/')) {
-      console.log('aaaaa')
-      this.phoneError = 'Длина номера должен быть 12'
-    }else {
+    if (!this.user.phoneNumber.match(/^\d{11}$/)) {
+      console.log('aaaaa');
+      this.phoneError = 'Длина номера должна быть 11';
+    } else {
       this.phoneError = ''
     }
 
