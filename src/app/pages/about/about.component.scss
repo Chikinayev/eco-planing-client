@@ -47,5 +47,20 @@
   align-items: center;
 }
 
+.event-info-img-container{
+  text-align: center;
+}
+.event-info-img{
+  height: 70vw;
+  min-height: 150px;
+  max-height: 300px;
+}
+.event-info-content{
+  margin: 20px;
+}
+.btn-edit-event,.btn-delete-event{
+  width: 50vh;
+  height: 4vh;
+}
 
 

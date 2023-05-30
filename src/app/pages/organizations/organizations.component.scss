@@ -1,6 +1,5 @@
 .sidebar-wrapper{
   background-color: white;
-  width: 40vh;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   margin-top:5px;
   margin-bottom:5px;
@@ -31,11 +30,11 @@
   grid-column: 1;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   min-height: 500px;
+  width: 950px;
   background: white;
   margin-top:5px;
   margin-right:5px;
   margin-bottom: 5px;
-  padding: 10px;
 }
 .content__title {
   text-align: center;
@@ -61,23 +60,6 @@
 .event_list{
   display: none;
   margin: 10px;
-}
-
-/* Sidebar */
-.sidebar {
-  align-content: start;
-  justify-items: start;
-  justify-content: start;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
-.sidebar__list {
-  width: 100%;
-}
-
-.sidebar__list * + * {
-  border-top: 0.5px solid #3335;
-  margin-top: 4px;
-  padding-top: 4px;
 }
 
 button {

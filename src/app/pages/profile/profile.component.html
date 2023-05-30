@@ -3,6 +3,11 @@
     <div class="content__title">Профиль</div>
     <div class="profile">
       <div class="profile_title">
+
+<!--        <label>Фотографии:</label>-->
+        <div *ngIf="images.length === 0">
+          <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
+        </div>
         <h3>{{ profile.fio }}</h3>
         <p>{{ profile.email }}</p>
         <p>{{ profile.phone }}</p>
@@ -10,10 +15,6 @@
         <ul>
           <li *ngFor="let r of profile.role">{{ r }}</li>
         </ul>
-        <label>Фотографии:</label>
-        <div *ngIf="images.length === 0">
-          <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
-        </div>
         <div *ngFor="let personImage of images">
           <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
           <button (click)="delImageUrl(personImage)">Удалить аву</button>
@@ -35,7 +36,7 @@
 
 
           <div *ngIf="events">
-            <div *ngFor="let eventList of events">
+            <div class="events-list" *ngFor="let eventList of events">
               <p>{{eventList.title}}</p>
               <p>{{eventList.eventDay}}</p>
               <button (click)="delEvent(eventList.id)">Удалить</button>
@@ -55,28 +56,26 @@
         </div>
 
       </div>
-      <script>
-        // Get all the event list divs
-        var eventListDivs = document.getElementsByClassName("event_list");
-        // Get all the event list items
-        var eventListItems = document.getElementsByClassName("event");
-        // Add click event listeners to each event list item
-        for (var i = 0; i < eventListItems.length; i++) {
-          eventListItems[i].addEventListener("click", function() {
-            // Hide all event list divs
-            for (var j = 0; j < eventListDivs.length; j++) {
-              eventListDivs[j].style.display = "none";
-            }
-            // Get the index of the clicked event list item
-            var index = Array.prototype.indexOf.call(eventListItems, this);
-            // Show the corresponding event list div
-            eventListDivs[index].style.display = "block";
-          });
-        }
-      </script>
+<!--      <script>-->
+<!--        // Get all the event list divs-->
+<!--        var eventListDivs = document.getElementsByClassName("event_list");-->
+<!--        // Get all the event list items-->
+<!--        var eventListItems = document.getElementsByClassName("event");-->
+<!--        // Add click event listeners to each event list item-->
+<!--        for (var i = 0; i < eventListItems.length; i++) {-->
+<!--          eventListItems[i].addEventListener("click", function() {-->
+<!--            // Hide all event list divs-->
+<!--            for (var j = 0; j < eventListDivs.length; j++) {-->
+<!--              eventListDivs[j].style.display = "none";-->
+<!--            }-->
+<!--            // Get the index of the clicked event list item-->
+<!--            var index = Array.prototype.indexOf.call(eventListItems, this);-->
+<!--            // Show the corresponding event list div-->
+<!--            eventListDivs[index].style.display = "block";-->
+<!--          });-->
+<!--        }-->
+<!--      </script>-->
     </div>
-
-
   </main>
   <div class="sidebar-wrapper">
     <app-sidebar></app-sidebar>

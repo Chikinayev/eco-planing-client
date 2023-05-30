@@ -3,7 +3,7 @@
     <div class="form-login">
       <h2 class='title'>Вход</h2>
       <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-      <input type="text" [(ngModel)]="email" placeholder="Email или телефон" class='form-input-login'>
+      <input type="email" [(ngModel)]="email" placeholder="Email или телефон" class='form-input-login' required>
       <input type="password" [(ngModel)]="password" placeholder="Пароль" class='form-input-login'>
       <button (click)="login()"
               class='form-submit'>Вход

@@ -50,4 +50,8 @@ export class MenuComponent {
   loginIn(){
     this.router.navigate(['login']).then();
   }
+
+  about(){
+    this.router.navigate(['about']).then();
+  }
 }

@@ -44,7 +44,7 @@ h3{
 /* profile */
 .profile{
   display: flex;
-  border-style: groove;
+  //border-style: groove;
   gap:10px;
   border-radius: 5px;
   padding: 10px;
@@ -111,4 +111,9 @@ button {
   width: 440px;
   height: 30px;
   justify-content: space-between;
+}
+.events-list{
+  display: flex;
+  justify-content: space-between;
+  margin-top:10px;
 }

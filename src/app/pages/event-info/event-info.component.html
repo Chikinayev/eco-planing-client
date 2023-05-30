@@ -1,50 +1,43 @@
-<div class="container">
-  <header class="header">
-    <div class="logo">Eco Planing</div>
-    <nav class="menu">
-      <a href="">Главная</a>
-      <a href="">Организации</a>
-      <a href="">О нас</a>
-      <a href="">Контакты</a>
-    </nav>
-    <div class="login-reg">
-      <a href="registration.html">Стать волонтером / Войти</a>
-    </div>
-  </header>
+
+<div class="wrapper-contend">
   <main class="content">
-    <div class="content__title">"Таза жол" акциясы</div>
+    <div class="content__title">{{eventDto.title}}</div>
     <div class="event-info-container">
       <div class="event-info-img-container">
         <img src="./taza-jol.jpg" alt="" class="event-info-img">
       </div>
       <div class="event-info-content">
-        <h3>Дата проведения:  {{ formattedDate }}</h3>
-        <h3>Время: {{formattedTime}}</h3>
-        <h4>Кол-во учатников: {{eventDto.subscribersCount}} чел</h4>
-        <p>{{eventDto.description}}</p>
-        <button class="btn-edit-event">Редактировать</button>
-        <button class="btn-delete-event">Удалить</button>
+        <div class="event-info">
+          <h5>Дата проведения:  {{ formattedDate }}</h5>
+          <h5>Время: {{formattedTime}}</h5>
+          <h5>Кол-во учатников: {{eventDto.subscribersCount}} чел</h5>
+          <p>{{eventDto.description}}</p>
+          <h5>Список : </h5>
+          <div *ngIf="eventDto.subscribersCount">
+            <div class="event-joiner" *ngFor="let user of eventDto.subscribers">
+              <div class="person">ФИО участника: {{user.fio}}</div>
+              <div class="person">Рейтинг : {{user.rating}}</div>
+              <div class="person">Номер телефона : {{user.phone}}</div>
+            </div>
+          </div>
+          <div *ngIf="!eventDto.subscribersCount">
+            <div> Нет участников !!! </div>
+          </div>
+
+
+        </div>
+
+        <div class="btn-event-info">
+          <button class="btn-edit-event">Редактировать</button>
+          <button class="btn-delete-event">Удалить</button>
+        </div>
+
       </div>
-      <div *ngFor="let user of eventDto.subscribers">
-        <div>{{user.fio}}</div>
-        <div>{{user.rating}}</div>
-        <div>{{user.phone}}</div>
-      </div>
+
     </div>
   </main>
-  <div class="sidebar">
-    <div class="block-title">Поиск событий</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Названия" />
-      <button type="button">Найти</button>
-    </div>
-    <div class="block-title">Сортировка по локации</div>
-    <div class="block block_flex">
-      <input type="text" placeholder="Город" />
-      <button type="button">Сортировка</button>
-    </div>
+  <div class="sidebar-wrapper">
+    <app-sidebar></app-sidebar>
   </div>
-  <footer class="footer">
-    © ECO planing 2023 | Волонтерская платформа ;)
-  </footer>
+
 </div>
