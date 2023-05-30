@@ -4,7 +4,7 @@ import {EventDto} from "../../model/eventDto";
 import {EventController} from "../../controller/eventController";
 import {tap} from "rxjs";
 import {LoginServices} from "../../services/login.services";
-import {Router, Routes} from "@angular/router";
+import {ActivatedRoute, Router, Routes} from "@angular/router";
 import {FileController} from "../../controller/fileController";
 
 @Component({
@@ -18,22 +18,37 @@ export class MainComponent {
   constructor(private readonly eventController: EventController,
               private readonly fileController: FileController,
               private readonly loginServices: LoginServices,
-              private readonly router: Router) {
+              private readonly router: Router,
+              private readonly route: ActivatedRoute) {
     this.init();
   }
 
   init() {
-    this.eventController.getAllEvent()
-      .pipe(
-        tap(value => {
-          if (value) {
-            console.log('addd ', value);
-            this.eventList = value;
-            this.downloadFile();
-          }
-        })
-      )
-      .subscribe();
+    console.log('444444')
+    this.route.queryParams.pipe(
+      tap(value => {
+        console.log('vale', value)
+        if (Object.keys(value).length !== 0) {
+          const queryParamsArray = Object.keys(value).map(key => value[key]);
+          this.eventList = queryParamsArray as EventList[];
+          console.log('ttt', this.eventList)
+          this.downloadFile();
+        }else {
+          this.eventController.getAllEvent()
+            .pipe(
+              tap(value => {
+                if (value) {
+                  console.log('addd ', value);
+                  this.eventList = value;
+                  this.downloadFile();
+                }
+              })
+            )
+            .subscribe();
+        }
+
+      })
+    ).subscribe();
   }
 
 

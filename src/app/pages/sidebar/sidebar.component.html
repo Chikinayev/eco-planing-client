@@ -1,12 +1,12 @@
-<div class="sidebar">
-  <div class="block-title">Поиск событий</div>
-  <div class="block block_flex">
-    <input type="text" placeholder="Названия" />
-    <button type="button">Найти</button>
+  <div class="sidebar">
+    <div class="block-title">Поиск событий</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Названия" [(ngModel)]="find" />
+      <button type="button" (click)="getEvent()">Найти</button>
+    </div>
+<!--    <div class="block-title">Сортировка по локации</div>-->
+  <!--  <div class="block block_flex">-->
+  <!--    <input type="text" placeholder="Город" />-->
+  <!--    <button type="button">Сортировка</button>-->
+  <!--  </div>-->
   </div>
-  <div class="block-title">Сортировка по локации</div>
-  <div class="block block_flex">
-    <input type="text" placeholder="Город" />
-    <button type="button">Сортировка</button>
-  </div>
-</div>
