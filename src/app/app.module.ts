@@ -21,6 +21,8 @@ import { EventInfoComponent } from './pages/event-info/event-info.component';
 import { EventAddFormComponent } from './pages/event-add-form/event-add-form.component';
 import { OrganizatorProfileComponent } from './pages/organizator-profile/organizator-profile.component';
 import { AboutComponent } from './pages/about/about.component';
+import {NgxPaginationModule} from "ngx-pagination";
+import {MatPaginatorModule} from "@angular/material/paginator";
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,14 +41,16 @@ import { AboutComponent } from './pages/about/about.component';
     OrganizatorProfileComponent,
     AboutComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        LoginModule,
-        NgOptimizedImage,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    LoginModule,
+    NgOptimizedImage,
+    NgxPaginationModule,
+    MatPaginatorModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -15,7 +15,7 @@
                     --img: url(./taza-jol.jpg);
                   "
               >
-                <img [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
+                <img *ngIf="event.eventPhotos" [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
               </div>
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
@@ -28,11 +28,11 @@
                 <p>{{event.subscribersCount}}</p>
                 <button (click)="subscribe(event.id)" class="btn-sub">Записаться</button>
               </div>
-
         </div>
       </div>
-
-<!--    </div>-->
+<!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+    <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
+    <!--    </div>-->
   </main>
   <div class="sidebar-wrapper">
     <app-sidebar></app-sidebar>

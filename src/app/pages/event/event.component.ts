@@ -7,7 +7,7 @@ import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
 import {WebAuthController} from "../../controller/WebAuthController";
 import {EventController} from "../../controller/eventController";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 
 
 @Component({
@@ -60,10 +60,13 @@ export class EventComponent implements OnDestroy{
     console.log('Created Event:', this.event);
     this.eventController.saveEvent(this.event)
       .pipe(
-        tap(value => {
+        map(value => {
           console.log('qqq :: ', value);
-          this.eventController.saveMultipart(this.eventPhotos, value).subscribe()
-            this.router.navigate(['profile']).then();
+          console.log('www :: ', )
+          if (!!this.eventPhotos){
+            return this.eventController.saveMultipart(this.eventPhotos, value).subscribe();
+          }
+          this.router.navigate(['profile']).then();
         })
       )
       .subscribe();
