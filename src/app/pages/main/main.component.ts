@@ -6,6 +6,8 @@ import {tap} from "rxjs";
 import {LoginServices} from "../../services/login.services";
 import {ActivatedRoute, Router, Routes} from "@angular/router";
 import {FileController} from "../../controller/fileController";
+import {PageEvent} from "@angular/material/paginator";
+import {FilterPage} from "../../model/FilterPage";
 
 @Component({
   selector: 'app-main',
@@ -14,7 +16,19 @@ import {FileController} from "../../controller/fileController";
 })
 export class MainComponent {
 
-  eventList: EventDto[] = [];
+  eventList: EventDto[] = []; // Ваш массив событий
+
+
+  // pagedEventList: any[] = []; // Массив отображаемых событий на текущей странице
+  // totalItems = 11; // Общее количество элементов
+  // pageSize = 8; // Количество элементов на странице
+  // currentPage = 10;
+
+  filter: FilterPage = new FilterPage();
+
+
+
+
   constructor(private readonly eventController: EventController,
               private readonly fileController: FileController,
               private readonly loginServices: LoginServices,
@@ -40,8 +54,8 @@ export class MainComponent {
 
   downloadFile() {
     for (let i = 0; i < this.eventList.length; i++){
-      console.log('333333')
-      if (this.eventList[i].imageId){
+      console.log('333333', this.eventList.length)
+      if (!!this.eventList[i].imageId){
         console.log('2222')
         this.fileController.downloadFile(this.eventList[i].imageId.toString())
           .pipe(
@@ -82,7 +96,19 @@ export class MainComponent {
     const queryParams = {id: id};
     this.router.navigate(['event-info'], {queryParams}).then();
   }
+  onPageChange(event: PageEvent) {
+    this.filter.currentPage = event.pageIndex;
+    this.filter.pageSize = event.pageSize;
 
+    // this.eventController.getEventById().subscribe();
+
+    console.log('qwe')
+    this.updatePagedEventList();
+  }
+  updatePagedEventList() {
+    const startIndex = this.filter.currentPage * this.filter.pageSize;
+    // this.filter.pagedEventList = this.eventList.slice(startIndex, startIndex + this.filter.pageSize);
+  }
 
 }
 

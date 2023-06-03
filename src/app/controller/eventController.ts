@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpService} from "../lib/http.service";
 import {EventDto} from "../model/eventDto";
 import {EventList} from "../model/eventList";
+import {FilterPage} from "../model/FilterPage";
 
 @Injectable({ providedIn: 'root' })
 
@@ -15,6 +16,10 @@ export class EventController{
 
   getEventById(eventId: number) {
     return this.http.toPostService0<EventList[]>('eventListByID', eventId);
+  }
+
+  getEventByFilter(filterPage: FilterPage) {
+    return this.http.toPostService0<EventList[]>('eventListByID', filterPage);
   }
 
   getEventByName(find: string) {

@@ -14,9 +14,15 @@
       <div *ngIf="eventList" class="content__cards">
 
         <div *ngFor="let event of eventList" class="card">
-            <a (click)="getEvent(event.id)">
-              <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">
-            </a>
+
+              <div
+                class="card__img"
+                style="
+                    --img: url(./taza-jol.jpg);
+                  "
+              >
+                <img *ngIf="event.eventPhotos" [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
+              </div>
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
                 <br>
@@ -31,12 +37,12 @@
                 <br>
                 <button (click)="subscribe(event.id)" class="card__button">Стать волонтером</button>
               </div>
-
         </div>
 
       </div>
-
-<!--    </div>-->
+<!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+    <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
+    <!--    </div>-->
   </main>
 <!--  <div class="sidebar-wrapper">-->
 <!--    <app-sidebar></app-sidebar>-->
