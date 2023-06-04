@@ -7,6 +7,7 @@ export const environment = {
   // urlPrefix: 'http://' + '192.168.35.29' + ':30621/',
   urlPrefix: 'https://' + 'ecoplaning-production.up.railway.app',
   wsUrlPrefix: 'ws://' + location.hostname + ':23403/websocket',
+  baseUrl: 'http://your-custom-url.com',
 
   production: false,
 };

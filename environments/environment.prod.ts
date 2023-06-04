@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  urlPrefix: '/web/',
+  urlPrefix: 'https://' + 'ecoplaning-production.up.railway.app',
   apiPrefix: '/api/',
 };
