@@ -3,8 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  urlPrefix: 'http://' + location.hostname + ':8080/',
+  // urlPrefix: 'http://' + location.hostname + ':8080/',
   // urlPrefix: 'http://' + '192.168.35.29' + ':30621/',
+  urlPrefix: 'https://' + 'ecoplaning-production.up.railway.app',
   wsUrlPrefix: 'ws://' + location.hostname + ':23403/websocket',
 
   production: false,
