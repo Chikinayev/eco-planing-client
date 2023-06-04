@@ -1,21 +1,43 @@
-
-<header class="header">
-  <div class="logo">
-    <a (click)="main()" class="a_logo">Eco Planing</a>
-  </div>
-  <nav class="menu">
-    <a (click)="main()" class="a_menu">Главная</a>
-    <a (click)="organizations()" class="a_menu">Организации</a>
-    <a (click)="about()" class="a_menu">О нашем проекте</a>
-<!--    <a href="#" class="a_menu">Контакты</a>-->
-  </nav>
-  <div class="login-reg">
-    <div *ngIf="userName; else login">
-      <a ><strong (click)="profile()">{{userName}}/</strong></a>
-      <a (click)="logout()"><strong>Выйти</strong></a>
+<div class="navbar">
+  <div class="header-contacts-upper">
+    <div class="phone_number">
+      +7 (771) 469-33-63
     </div>
-    <ng-template #login>
-      <a (click)="loginIn()">Стать волонтером / Войти</a>
-    </ng-template>
+    <div class="email-address">
+      <a class="email-link" href="mailto:infoecoplaning@gmail.com">info_ecoplaning@gmail.com</a>
+    </div>
+    <div class="social-media-icons">
+      <a href="https://instagram.com/eco_planning_kz?igshid=MmJiY2I4NDBkZg==" onclick="window.open(this.href,'_blank'); return false;">
+        <img class="icon" src="../../../assets/images/instagram.png">
+      </a>
+      <a href="https://t.me/Bagitbek1" onclick="window.open(this.href,'_blank'); return false;">
+        <img class="icon" src="../../../assets/images/telegram.png">
+      </a>
+      <a href="https://wa.me/87714693363" onclick="window.open(this.href,'_blank'); return false;">
+        <img class="icon" src="../../../assets/images/whatsapp.png">
+      </a>
+    </div>
   </div>
-</header>
+  <header class="header">
+    <div class="logo">
+      <a (click)="main()" class="a_logo">Eco Planing</a>
+    </div>
+    <nav class="menu">
+      <a (click)="main()" class="a_menu">Главная</a>
+      <a (click)="organizations()" class="a_menu">Организации</a>
+      <a (click)="about()" class="a_menu">О нашем проекте</a>
+      <!--    <a href="#" class="a_menu">Контакты</a>-->
+    </nav>
+    <div class="login-reg">
+      <div *ngIf="userName; else login">
+        <a class="a_menu"><strong (click)="profile()">{{userName}}/</strong></a>
+        <a class="a_menu"(click)="logout()"><strong>Выйти</strong></a>
+      </div>
+      <ng-template #login>
+        <a class="a_menu"(click)="loginIn()">Стать волонтером / Войти</a>
+      </ng-template>
+    </div>
+  </header>
+
+
+</div>

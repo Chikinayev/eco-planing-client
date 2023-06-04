@@ -1,13 +1,79 @@
+
+.navbar{
+  //position: fixed; /* Set the navbar to fixed position */
+  //top: 0;
+  //width: 100%;
+  //overflow: hidden;
+}
+.header-contacts-upper{
+  display: flex;
+  background: #0a2638;
+  height: 50px;
+  color:white;
+  align-items: center;
+  justify-content: space-between;
+  padding-left:10px;
+  padding-right:10px;
+
+}
+.email-link{
+  color:white;
+  display: inline-block;
+  position: relative;
+}
+.email-link::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.email-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.icon{
+  width: 20px;
+  margin: 10px;
+}
+
+
 .a_menu{
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color:#0a2638;
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
 }
 .a_logo{
   cursor: pointer;
   color:white;
-
 }
+
+.a_menu::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0a2638;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.a_menu:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
 .a_logo:hover {
   color: #048263;
 }
@@ -16,13 +82,13 @@
   gap: 15px;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 18px;
   grid-column: span 2;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background: white;
+  background: #fafdff;
   height: 15vh;
-  width: 1200px;
   padding: 10px;
+
 }
 .header .logo {
   padding: 6px 20px;
@@ -62,9 +128,32 @@ a {
   text-decoration: none;
   color: black;
 }
-a:hover {
-  color: #048263;
-}
-li:hover{
-  color: #048263;
-}
+//a:hover {
+//  color: #048263;
+//}
+//li:hover{
+//  color: #048263;
+//}
+
+//.page-show-title{
+//  background: #04AA6D;
+//  height: 200px;
+//  font-size: larger;
+//  color: #fafdff;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//
+//}
+//.search-line{
+//  display: flex;
+//  background: #0a2638;
+//  color:#fafdff;
+//  height: 10vh;
+//  align-items: center;
+//  justify-content: flex-end;
+//}
+//.block-title{
+//  margin-right: 10px;
+//}
+

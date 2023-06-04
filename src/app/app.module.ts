@@ -19,7 +19,7 @@ import { EventComponent } from './pages/event/event.component';
 import { OrganizationsComponent } from './pages/organizations/organizations.component';
 import { EventInfoComponent } from './pages/event-info/event-info.component';
 import { EventAddFormComponent } from './pages/event-add-form/event-add-form.component';
-import { OrganizatorProfileComponent } from './pages/organizator-profile/organizator-profile.component';
+//import { OrganizatorProfileComponent } from './pages/organizator-profile/organizator-profile.component';
 import { AboutComponent } from './pages/about/about.component';
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { AboutComponent } from './pages/about/about.component';
     OrganizationsComponent,
     EventInfoComponent,
     EventAddFormComponent,
-    OrganizatorProfileComponent,
+
     AboutComponent
   ],
     imports: [

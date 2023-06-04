@@ -17,7 +17,7 @@
         </ul>
         <div *ngFor="let personImage of images">
           <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
-          <button (click)="delImageUrl(personImage)">Удалить аву</button>
+          <button (click)="delImageUrl(personImage)" style="width:200px" >Удалить аву</button>
         </div>
       </div>
       <div class="profile_content">

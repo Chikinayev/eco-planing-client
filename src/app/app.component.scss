@@ -6,16 +6,16 @@
 }
 
 
-a:hover {
-  color: #048263;
-}
-li:hover{
-  color: #048263;
-}
+//a:hover {
+//  color: #048263;
+//}
+//li:hover{
+//  color: #048263;
+//}
 
 body {
-  display: grid;
-  justify-items: center;
+  //display: grid;
+  //justify-items: center;
   font-family: 'Roboto Slab', serif;
   min-height: 100vh;
   grid-template-rows: auto 1fr;
@@ -24,14 +24,14 @@ body {
 }
 
 .title {
-  margin: 15px;
+  //margin: 15px;
 }
 .wrapper{
 
 }
 .content-wrapper{
-  display: flex;
-
-  justify-content: center;
+  //display: flex;
+  //margin-top: 140px;
+  //justify-content: center;
 }
 

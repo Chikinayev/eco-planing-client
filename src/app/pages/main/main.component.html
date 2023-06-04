@@ -1,22 +1,20 @@
-<div class="wrapper-contend">
+
+<div class="main-container">
+  <div class="page-show-title">
+    <h1>Волонтерские событие</h1>
+  </div>
+  <div class="search-line">
+    <div class="block-title">Поиск событий</div>
+    <div class="block block_flex">
+      <input type="text" placeholder="Названия" />
+      <button type="button">Найти</button>
+    </div>
+  </div>
   <main class="content">
-    <div class="content__title">Волонтерские события</div>
-<!--    <div class="content__cards">-->
-<!--      <div *ngFor="let eventList of events">-->
-<!--        {{eventList.title}}-->
-<!--      </div>-->
       <div *ngIf="eventList" class="content__cards">
 
         <div *ngFor="let event of eventList" class="card">
-
-              <div
-                class="card__img"
-                style="
-                    --img: url(./taza-jol.jpg);
-                  "
-              >
-                <img [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
-              </div>
+              <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
                 <div class="card__desc">
@@ -34,9 +32,8 @@
 
 <!--    </div>-->
   </main>
-  <div class="sidebar-wrapper">
-    <app-sidebar></app-sidebar>
-  </div>
+<!--  <div class="sidebar-wrapper">-->
+<!--    <app-sidebar></app-sidebar>-->
+<!--  </div>-->
 </div>
-
 

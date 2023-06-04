@@ -10,4 +10,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ]
 })
-export class LoginModule { }
+export class LoginModule {
+
+}

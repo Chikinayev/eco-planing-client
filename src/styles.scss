@@ -7,7 +7,7 @@ body{
   width: 100%;
   height: 100%;
   display: grid;
-  justify-items: center;
+  //justify-items: center;
   font-family: 'Roboto Slab', serif;
   min-height: 100vh;
   grid-template-rows: auto 1fr;
@@ -22,10 +22,10 @@ a {
   text-decoration: none;
   color: black;
 }
-a:hover {
-  color: #048263;
-}
-li:hover{
-  color: #048263;
-}
+//a:hover {
+//  color: #048263;
+//}
+//li:hover{
+//  color: #048263;
+//}
 

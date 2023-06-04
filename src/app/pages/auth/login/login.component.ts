@@ -36,5 +36,8 @@ export class LoginComponent implements OnInit{
   redirectToRegister() {
     this.router.navigate(['register']).then();
   }
+
+  isRequired: boolean = true;
+  emailValue: string = '';
 }
 
