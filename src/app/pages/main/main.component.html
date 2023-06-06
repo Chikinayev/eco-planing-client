@@ -17,17 +17,21 @@
               <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
+                <br>
                 <div class="card__desc">
                   {{event.description}}
                 </div>
                 <div class="card__info">
                   {{event.eventDay}}
                 </div>
-                <p>{{event.subscribersCount}}</p>
-                <button (click)="subscribe(event.id)" class="btn-sub">Записаться</button>
+                <br>
+                <p style="font-family: 'Geologica', sans-serif;"><strong>Волонтеры</strong>: {{event.subscribersCount}}</p>
+                <br>
+                <button (click)="subscribe(event.id)" class="btn-sub">Стать волонтером</button>
               </div>
 
         </div>
+
       </div>
 
 <!--    </div>-->
