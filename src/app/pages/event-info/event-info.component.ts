@@ -4,6 +4,7 @@ import {tap} from "rxjs";
 import {EventController} from "../../controller/eventController";
 import {SubSink} from "../../util/SubSink";
 import {EventDto} from "../../model/eventDto";
+import {FileController} from "../../controller/fileController";
 
 @Component({
   selector: 'app-event-info',
@@ -19,6 +20,7 @@ export class EventInfoComponent {
 
   private readonly subs = new SubSink();
   constructor(private readonly route: ActivatedRoute,
+              private readonly fileController: FileController,
               private readonly eventController: EventController) {
     this.init();
   }
@@ -50,11 +52,38 @@ export class EventInfoComponent {
     this.subs.sink = this.eventController.getEventDtoById(id).pipe(
       tap(value => {
         this.eventDto = value;
+        this.downloadFile();
         this.getFormattedDate();
         this.getFormattedTime();
         console.log('qqqq ', this.eventDto);
       })
     ).subscribe();
+  }
+
+  getImageUrl(file: File): string {
+    console.log('ppp :: ', file);
+    return URL.createObjectURL(file);
+  }
+
+  downloadFile() {
+    console.log('333333')
+    if (this.eventDto.imageId){
+      console.log('2222')
+      this.fileController.downloadFile(this.eventDto.imageId.toString())
+        .pipe(
+          tap(
+            value => {
+              console.log('qqqqq')
+              if (!this.eventDto.eventPhotos){
+                this.eventDto.eventPhotos = [];
+              }
+              this.eventDto.eventPhotos.push(new File([value.body], 'asd'));
+            }
+          )
+        ).subscribe();
+    }
+
+
   }
 
 }

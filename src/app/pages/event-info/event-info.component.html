@@ -4,9 +4,11 @@
     <div class="content__title">{{eventDto.title}}</div>
     <div class="event-info-container">
       <div class="event-info-img-container">
-        <img src="./taza-jol.jpg" alt="" class="event-info-img">
+        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="400" height="400" alt="Фото профиля">
+
       </div>
       <div class="event-info-content">
+
         <div class="event-info">
           <h5>Дата проведения:  {{ formattedDate }}</h5>
           <h5>Время: {{formattedTime}}</h5>
