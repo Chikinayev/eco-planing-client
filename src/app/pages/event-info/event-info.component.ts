@@ -15,6 +15,7 @@ export class EventInfoComponent {
 
   id: number;
   eventDto:EventDto = new EventDto();
+
   formattedDate: string;
   formattedTime: string;
 

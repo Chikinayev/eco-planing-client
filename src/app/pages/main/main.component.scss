@@ -63,7 +63,7 @@ button {
   background: #04AA6D;
   color: #fafdff;
   border: none;
-  height: 15px;
+
 }
 .card {
   width: 100%;
@@ -87,6 +87,7 @@ button {
   font-size: 20px;
   font-family: 'Geologica', sans-serif;
   margin-bottom: 3px;
+
 }
 .card__desc {
   opacity: 0.8;
@@ -112,7 +113,6 @@ button {
   cursor: pointer;
   display: inline-block;
   padding: 7px 25px;
-  margin: 10px auto 15px;
   background: #04AA6D;
   border-radius: 2px;
   font-size: 15px;
@@ -155,10 +155,7 @@ button {
 .event-info-content{
   margin: 20px;
 }
-.btn-edit-event,.btn-delete-event{
-  width: 50vh;
-  height: 4vh;
-}
+
 
 //.card__img {
 //  background-size: cover;
@@ -178,6 +175,9 @@ button {
   justify-content: center;
 
 }
+a{
+  cursor: pointer;
+}
 .search-line{
   display: flex;
   background: #0a2638;
@@ -185,7 +185,17 @@ button {
   height: 10vh;
   align-items: center;
   justify-content: flex-end;
+  padding-right: 20px;
 }
 .block-title{
   margin-right: 10px;
+}
+.search-input{
+  height: 30px;
+  border-style: hidden;
+  font-family: 'Roboto Slab', serif;
+}
+.search-btn{
+  height: 30px;
+  font-family: 'Roboto Slab', serif;
 }

@@ -1,20 +1,22 @@
-
-<div class="wrapper-contend">
+<div class="main-container">
+  <div class="page-show-title">
+    <h1>Информация о событии</h1>
+  </div>
   <main class="content">
     <div class="content__title">{{eventDto.title}}</div>
     <div class="event-info-container">
       <div class="event-info-img-container">
-        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="400" height="400" alt="Фото профиля">
-
+        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="700"  alt="Фото профиля">
       </div>
       <div class="event-info-content">
-
         <div class="event-info">
-          <h5>Дата проведения:  {{ formattedDate }}</h5>
-          <h5>Время: {{formattedTime}}</h5>
-          <h5>Кол-во учатников: {{eventDto.subscribersCount}} чел</h5>
+          <h3>Дата проведения:  {{ formattedDate }}</h3>
+          <h3>Время: {{formattedTime}}</h3>
+          <h3>Кол-во учатников: {{eventDto.subscribersCount}} чел</h3>
+          <h3>Описание мероприятие</h3>
           <p>{{eventDto.description}}</p>
-          <h5>Список : </h5>
+          <h3>Список : </h3>
+          <br>
           <div *ngIf="eventDto.subscribersCount">
             <div class="event-joiner" *ngFor="let user of eventDto.subscribers">
               <div class="person">ФИО участника: {{user.fio}}</div>
@@ -25,15 +27,9 @@
           <div *ngIf="!eventDto.subscribersCount">
             <div> Нет участников !!! </div>
           </div>
-
-
         </div>
       </div>
-
     </div>
   </main>
-  <div class="sidebar-wrapper">
-    <app-sidebar></app-sidebar>
-  </div>
 
 </div>

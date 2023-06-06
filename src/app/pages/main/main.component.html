@@ -6,15 +6,17 @@
   <div class="search-line">
     <div class="block-title">Поиск событий</div>
     <div class="block block_flex">
-      <input type="text" placeholder="Названия" />
-      <button type="button">Найти</button>
+      <input class="search-input" type="text" placeholder="Названия" />
+      <button class="search-btn" type="button">Найти</button>
     </div>
   </div>
   <main class="content">
       <div *ngIf="eventList" class="content__cards">
 
         <div *ngFor="let event of eventList" class="card">
+            <a (click)="getEvent(event.id)">
               <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">
+            </a>
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
                 <br>
@@ -27,7 +29,7 @@
                 <br>
                 <p style="font-family: 'Geologica', sans-serif;"><strong>Волонтеры</strong>: {{event.subscribersCount}}</p>
                 <br>
-                <button (click)="subscribe(event.id)" class="btn-sub">Стать волонтером</button>
+                <button (click)="subscribe(event.id)" class="card__button">Стать волонтером</button>
               </div>
 
         </div>

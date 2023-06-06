@@ -96,5 +96,7 @@ export class MainComponent {
     const queryParams = {id: id};
     this.router.navigate(['event-info'], {queryParams}).then();
   }
+
+
 }
 
