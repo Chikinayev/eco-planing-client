@@ -12,6 +12,7 @@
   height: 65vh;
   margin-top:5vh;
   margin-bottom: 5vh;
+  background-color: #fafdff;
 }
 
 
@@ -19,11 +20,13 @@
   margin-top:20px;
   display: flex;
   flex-direction: column;
+
 }
 
 .form-input-login,.form-submit,.registration-btn{
   margin: 15px;
   height: 6vh;
+  //background-color: #fafdff;
 }
 
 

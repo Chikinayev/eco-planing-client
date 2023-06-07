@@ -20,6 +20,8 @@
 .event-joiner{
   display: flex;
   justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 
@@ -39,11 +41,12 @@
 }
 .content__title {
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   //margin: 10px 0 15px;
-  font-size: 22px;
+  font-size: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: 'Geologica', sans-serif;
 }
 button {
   cursor: pointer;

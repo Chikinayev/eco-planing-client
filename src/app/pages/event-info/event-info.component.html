@@ -12,17 +12,26 @@
         <div class="event-info">
           <h3>Дата проведения:  {{ formattedDate }}</h3>
           <h3>Время: {{formattedTime}}</h3>
-          <h3>Кол-во учатников: {{eventDto.subscribersCount}} чел</h3>
+          <h3>Кол-во учаcтников: {{eventDto.subscribersCount}} чел</h3>
+
           <h3>Описание мероприятие</h3>
           <p>{{eventDto.description}}</p>
           <h3>Список : </h3>
+          <br>
+          <hr>
           <br>
           <div *ngIf="eventDto.subscribersCount">
             <div class="event-joiner" *ngFor="let user of eventDto.subscribers">
               <div class="person">ФИО участника: {{user.fio}}</div>
               <div class="person">Рейтинг : {{user.rating}}</div>
               <div class="person">Номер телефона : {{user.phone}}</div>
+              <a href="https://wa.me/{{user.phone}}" onclick="window.open(this.href,'_blank'); return false;">
+                <img src="/assets/images/whatsapp_black.png">
+              </a>
             </div>
+            <br>
+            <hr>
+            <br>
           </div>
           <div *ngIf="!eventDto.subscribersCount">
             <div> Нет участников !!! </div>
