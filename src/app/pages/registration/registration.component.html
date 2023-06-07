@@ -21,10 +21,14 @@
                      placeholder="телефон" class='form-input-register'
                      required>
             <div class="error-message" *ngIf="phoneError">{{ phoneError }}</div>
-              <input type="text" id="city"
-                     name="city" [(ngModel)]="user.city"
-                     placeholder="город" class='form-input-register'
-                     required>
+
+
+            <select id="city" name="city" [(ngModel)]="user.city"
+                    class='form-input-register'>
+              <option value="{{ City.Almaty }}">{{ City.Almaty.valueOf() }}</option>
+              <option value="{{ City.Astana }}">{{ City.Astana.valueOf() }}</option>
+              <option value="{{ City.Shymkent }}">{{ City.Shymkent.valueOf() }}</option>
+            </select>
 
               <input type="text" id="email"
                      name="email" [(ngModel)]="user.email"

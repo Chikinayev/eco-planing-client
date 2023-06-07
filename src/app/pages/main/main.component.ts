@@ -18,37 +18,23 @@ export class MainComponent {
   constructor(private readonly eventController: EventController,
               private readonly fileController: FileController,
               private readonly loginServices: LoginServices,
-              private readonly router: Router,
-              private readonly route: ActivatedRoute) {
+              private readonly router: Router) {
     this.init();
   }
 
   init() {
     console.log('444444')
-    this.route.queryParams.pipe(
-      tap(value => {
-        console.log('vale', value)
-        if (Object.keys(value).length !== 0) {
-          const queryParamsArray = Object.keys(value).map(key => value[key]);
-          this.eventList = queryParamsArray as EventList[];
-          console.log('ttt', this.eventList)
-          this.downloadFile();
-        }else {
-          this.eventController.getAllEvent()
-            .pipe(
-              tap(value => {
-                if (value) {
-                  console.log('addd ', value);
-                  this.eventList = value;
-                  this.downloadFile();
-                }
-              })
-            )
-            .subscribe();
-        }
-
-      })
-    ).subscribe();
+    this.eventController.getAllEvent()
+      .pipe(
+        tap(value => {
+          if (value) {
+            console.log('addd ', value);
+            this.eventList = value;
+            this.downloadFile();
+          }
+        })
+      )
+      .subscribe();
   }
 
 
