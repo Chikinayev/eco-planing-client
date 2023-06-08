@@ -66,22 +66,22 @@ export class EventInfoComponent {
   }
 
   downloadFile() {
-    console.log('333333')
-    if (this.eventDto.imageId){
-      console.log('2222')
-      this.fileController.downloadFile(this.eventDto.imageId.toString())
-        .pipe(
-          tap(
-            value => {
-              console.log('qqqqq')
-              if (!this.eventDto.eventPhotos){
-                this.eventDto.eventPhotos = [];
+      console.log('333333')
+      if (this.eventDto.imageId){
+        console.log('2222')
+        this.fileController.downloadFile(this.eventDto.imageId.toString())
+          .pipe(
+            tap(
+              value => {
+                console.log('qqqqq')
+                if (!this.eventDto.eventPhotos){
+                  this.eventDto.eventPhotos = [];
+                }
+                this.eventDto.eventPhotos.push(new File([value.body], 'asd'));
               }
-              this.eventDto.eventPhotos.push(new File([value.body], 'asd'));
-            }
-          )
-        ).subscribe();
-    }
+            )
+          ).subscribe();
+      }
 
 
   }

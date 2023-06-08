@@ -1,5 +1,6 @@
 import {Role} from "./role";
 import {Image} from "./image";
+import {City} from "./city";
 
 export class User {
   email: string;
@@ -9,7 +10,7 @@ export class User {
   rating?: number;
   password: string;
   roles: Role[];
-  city: string;
+  city: City;
 
   constructor() {
     this.roles = []

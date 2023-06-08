@@ -6,7 +6,8 @@
     <div class="content__title">{{eventDto.title}}</div>
     <div class="event-info-container">
       <div class="event-info-img-container">
-        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="700"  alt="Фото профиля">
+<!--        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="700"  alt="Фото профиля">-->
+        <img *ngIf="!!eventDto.eventPhotos" [src] = "getImageUrl(eventDto.eventPhotos[0])" width="400" height="400" alt="Фото профиля">
       </div>
       <div class="event-info-content">
         <div class="event-info">
@@ -37,6 +38,12 @@
             <div> Нет участников !!! </div>
           </div>
         </div>
+
+<!--        <div class="btn-event-info">-->
+<!--&lt;!&ndash;          <button class="btn-edit-event">Редактировать</button>&ndash;&gt;-->
+<!--&lt;!&ndash;          <button class="btn-delete-event">Удалить</button>&ndash;&gt;-->
+<!--        </div>-->
+
       </div>
     </div>
   </main>

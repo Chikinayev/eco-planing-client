@@ -4,6 +4,7 @@ import {Role} from "../../model/role";
 import {hasTwoWords} from "../../util/stringUtil";
 import {WebAuthController} from "../../controller/WebAuthController";
 import {Router} from "@angular/router";
+import {City} from "../../model/city";
 
 @Component({
   selector: 'app-registration',
@@ -135,4 +136,6 @@ export class RegistrationComponent {
     this.user.roles. splice(0, this.user.roles.length);
     this.addToRoles();
   }
+
+  protected readonly City = City;
 }
