@@ -21,6 +21,8 @@ import { EventInfoComponent } from './pages/event-info/event-info.component';
 import { EventAddFormComponent } from './pages/event-add-form/event-add-form.component';
 //import { OrganizatorProfileComponent } from './pages/organizator-profile/organizator-profile.component';
 import { AboutComponent } from './pages/about/about.component';
+import { RegistrationOrganizatorComponent } from './pages/registration-organizator/registration-organizator.component';
+import { AdminComponent } from './pages/admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { AboutComponent } from './pages/about/about.component';
     EventInfoComponent,
     EventAddFormComponent,
 
-    AboutComponent
+    AboutComponent,
+      RegistrationOrganizatorComponent,
+      AdminComponent
   ],
     imports: [
         BrowserModule,

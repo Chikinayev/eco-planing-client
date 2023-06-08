@@ -1,6 +1,6 @@
 
-#avatar{
-  width: 200px;
+.avatar{
+  border-radius:50% ;
 }
 .page-show-title{
   background: #04AA6D;
@@ -34,14 +34,19 @@
 .profile{
   display: flex;
   justify-content: center;
-  gap:10px;
+  //gap:10px;
   border-radius: 5px;
   padding: 10px;
-  min-height: 330px;
+  min-height: 350px;
 }
 .profile_title{
-  border-style: inherit;
-  width: 250px;
+  border: solid;
+  border-width: 0.5px;
+  width: 300px;
+  border-color: darkgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .profile_content{
   border-style: inherit;
@@ -105,4 +110,40 @@ button {
   display: flex;
   justify-content: space-between;
   margin-top:10px;
+  height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  gap:5px;
+}
+.event-title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.btn-add-event{
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  background: white;
+  color: #0a2638;
+  border-color: #04AA6D;
+  border-style: solid;
+  font-size: medium;
+  font-family: 'Geologica', sans-serif;
+  border-width: 2px;
+}
+.btn-add-event:hover , .btn-delete-event:hover, .edit-btn-profile:hover{
+  background: #04AA6D;
+  color: white;
+
+}
+.btn-delete-event,.edit-btn-profile {
+  background: white;
+  color: #0a2638;
+  border-color: #04AA6D;
+  border-style: solid;
+  font-size: medium;
+  font-family: 'Geologica', sans-serif;
+  border-width: 2px;
 }

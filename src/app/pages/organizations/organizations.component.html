@@ -1,54 +1,56 @@
-<div class="wrapper-contend">
-  <main class="content">
-    <div class="content__title">Волонтерские организации</div>
-    <div class="content__cards">
-      <div class="card">
-        <div
-          class="card__img"
 
-        >
-        <img class="card__img" src="../../../assets/images/almaty-volunters.jpg">
-      </div>
-        <div class="card__content">
-          <div class="card__title">
-            <a>Координационный Центр Добровольцев</a>
-          </div>
-          <div class="card__desc">
-            Координационный Центр Добровольцев является волонтерской программой научно-образовательного
-            фонда им. академика Ш. Есенова...
-          </div>
-          <div class="card__info">
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__img" src="../../../assets/images/almaty-volunters.jpg">
-        <div class="card__content">
-          <div class="card__title">ОФ «Almaty Volunteers»</div>
-          <div class="card__desc">
-            В 2019 году Алматинский городской филиал МК «Jas Otan»
-            в рамках реализации проекта «Волонтерский корпус» при поддержке...
-          </div>
-          <div class="card__info">
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card__img" src="../../../assets/images/almaty-volunters.jpg">
-        <div class="card__content">
-          <div class="card__title">Благотворительный фонд «Бауыржан»</div>
-          <div class="card__desc">
-            Общественная организация, чья цель — сделать благотворительность эффективней....
-          </div>
-          <div class="card__info">
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <div class="sidebar-wrapper">
-    <app-sidebar></app-sidebar>
+<div class="main-container">
+  <div class="page-show-title">
+    <h1>Волонтерские организации</h1>
   </div>
-</div>
 
+  <main class="content">
+      <div class="content__cards">
+        <div class="card">
+
+            <img class="card__img" src="assets/images/almaty-volunters.jpg">
+          <div class="card__content">
+            <div class="card__title">
+              Алматы волотенр
+            </div>
+            <div class="card__desc">
+                sdasasdsd
+            </div>
+            <div class="card__info">
+                asdasdkasdk
+            </div>
+          </div>
+        </div>
+      </div>
+<!--    <div *ngIf="eventList" class="content__cards">-->
+
+<!--      <div *ngFor="let event of eventList" class="card">-->
+<!--        <a (click)="getEvent(event.id)">-->
+<!--          <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">-->
+<!--        </a>-->
+<!--        <div class="card__content">-->
+<!--          <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>-->
+<!--          <br>-->
+<!--          <div class="card__desc">-->
+<!--            {{event.description}}-->
+<!--          </div>-->
+<!--          <div class="card__info">-->
+<!--            {{event.eventDay}}-->
+<!--          </div>-->
+<!--          <br>-->
+<!--          <p style="font-family: 'Geologica', sans-serif;"><strong>Волонтеры</strong>: {{event.subscribersCount}}</p>-->
+<!--          <br>-->
+<!--          <button (click)="subscribe(event.id)" class="card__button">Стать волонтером</button>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <!--    </div>-->
+  </main>
+  <!--  <div class="sidebar-wrapper">-->
+  <!--    <app-sidebar></app-sidebar>-->
+  <!--  </div>-->
+</div>
 

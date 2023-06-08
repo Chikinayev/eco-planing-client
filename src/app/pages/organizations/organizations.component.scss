@@ -1,15 +1,10 @@
-.sidebar-wrapper{
-  background-color: white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-top:5px;
-  margin-bottom:5px;
+.main-container{
+  background: #fafdff;
+  width: 100%;
 }
-.wrapper-contend{
-  display: flex;
-  width: 1200px;
-
+.btn-sub{
+  height: 25px;
 }
-
 
 .title {
   margin: 15px;
@@ -27,14 +22,12 @@
 //}
 /* Content */
 .content {
-  grid-column: 1;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   min-height: 500px;
-  width: 950px;
-  background: white;
-  margin-top:5px;
-  margin-right:5px;
-  margin-bottom: 5px;
+  padding: 10px;
+  width: 1150px;
+  color: #0a2638;
+  margin: 0 auto;
+
 }
 .content__title {
   text-align: center;
@@ -43,9 +36,11 @@
   font-size: 22px;
 }
 .content__cards {
+  margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
 }
 /* profile */
 .profile{
@@ -62,63 +57,69 @@
   margin: 10px;
 }
 
+
 button {
   cursor: pointer;
   background: #04AA6D;
-  color: white;
-  border: 0.5px solid #3335;
-  border-radius: 2px;
+  color: #fafdff;
+  border: none;
+
 }
 .card {
-  padding: 5px;
-  width: 100%;
-  color: #333;
-  background: white;
+  width: 360px;
+  height: 460px;
   font-weight: 300;
   font-size: 15px;
-  overflow: hidden;
-  border-radius: 5px;
-  border-style:groove;
+  display: grid;
 }
+
 .card__img {
-  border-radius: 5px;
-  height: 20vw;
-  min-height: 150px;
-  max-height: 250px;
-  background: var(--img) center / cover;
+  width: 100%;
+  height: 280px;
 }
 .card__content {
   display: grid;
-  padding: 5px;
+
 }
 .card__title {
-  font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px;
+  font-family: 'Geologica', sans-serif;
   margin-bottom: 3px;
+
 }
 .card__desc {
   opacity: 0.8;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Geologica', sans-serif;
 }
 .card__info {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Geologica', sans-serif;
 }
 .card__rating {
   opacity: 0.2;
   letter-spacing: -1px;
+  font-family: 'Geologica', sans-serif;
 }
 
 .card__button {
   cursor: pointer;
   display: inline-block;
   padding: 7px 25px;
-  margin: 10px auto 15px;
   background: #04AA6D;
   border-radius: 2px;
   font-size: 15px;
-  color: white;
+  color: #fafdff;
+  font-family: 'Geologica', sans-serif;
 }
 .event-form-container{
   text-align: center;
@@ -130,7 +131,7 @@ button {
 }
 .form-submit-add-event,.form-submit{
   margin: 10px 10px 10px 10px ;
-  color: white;
+  color: #fafdff;
   height: 6vh;
   background-color: #04AA6D;
   border-radius: 5px;
@@ -156,7 +157,47 @@ button {
 .event-info-content{
   margin: 20px;
 }
-.btn-edit-event,.btn-delete-event{
-  width: 50vh;
-  height: 4vh;
+
+
+//.card__img {
+//  background-size: cover;
+//  background-position: center;
+//  height: 20vh;
+//}
+
+
+/// page
+.page-show-title{
+  background: #04AA6D;
+  height: 200px;
+  font-size: larger;
+  color: #fafdff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+a{
+  cursor: pointer;
+}
+.search-line{
+  display: flex;
+  background: #0a2638;
+  color:#fafdff;
+  height: 10vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.block-title{
+  margin-right: 10px;
+}
+.search-input{
+  height: 30px;
+  border-style: hidden;
+  font-family: 'Roboto Slab', serif;
+}
+.search-btn{
+  height: 30px;
+  font-family: 'Roboto Slab', serif;
 }

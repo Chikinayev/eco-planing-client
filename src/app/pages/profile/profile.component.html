@@ -3,7 +3,6 @@
     <h1>Профиль пользователя</h1>
   </div>
   <main class="content">
-    <div class="content__title"></div>
     <div class="profile">
       <div class="profile_title">
 
@@ -11,24 +10,33 @@
         <div *ngIf="images.length === 0">
           <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
         </div>
-        <h3>{{ profile.fio }}</h3>
-        <p>{{ profile.email }}</p>
-        <p>{{ profile.phone }}</p>
-        <p><strong>{{ profile.rating }}</strong></p>
-        <ul>
-          <li *ngFor="let r of profile.role">{{ r }}</li>
-        </ul>
+
+<!--        <p>{{ profile.email }}</p>-->
+<!--        <p>{{ profile.phone }}</p>-->
+<!--        <p><strong>{{ profile.rating }}</strong></p>-->
+<!--        <ul>-->
+<!--          <li *ngFor="let r of profile.role">{{ r }}</li>-->
+<!--        </ul>-->
+
         <div *ngFor="let personImage of images">
-          <img [src] = "getImageUrl(personImage)" width="200" height="200" alt="Фото профиля">
-          <button (click)="delImageUrl(personImage)" style="width:200px" >Удалить аву</button>
+          <img class="avatar" [src] = "getImageUrl(personImage)" width="250" height="250" alt="Фото профиля">
+          <h3>{{ profile.fio }}</h3>
+          <button class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
+          <div class="profile-footer">
+            <p>{{ profile.email }}</p>
+            <p>{{ profile.phone }}</p>
+            <p>рейтинг: <strong>{{ profile.rating }}</strong></p>
+          </div>
         </div>
+
       </div>
+
       <div class="profile_content">
         <div class="profile_content_info">
           <h3>Обо мне</h3>
           {{ profile.description }}
         </div>
-        <button (click)="createEvent()"> Добавить Event</button>
+        <button class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
         <div class="profile_events">
           <h3>Волонтерская деятельность</h3>
 <!--          <ul  id="event_type" class="profile_events_types">-->
@@ -36,14 +44,21 @@
 <!--            <li class="event">Реализованные события</li>-->
 <!--            <li class="event">Пропущенные события</li>-->
 <!--          </ul>-->
-
+          <br>
 
           <div *ngIf="events">
-            <div class="events-list" *ngFor="let eventList of events">
-              <p>{{eventList.title}}</p>
-              <p>{{eventList.eventDay}}</p>
-              <button (click)="delEvent(eventList.id)">Удалить</button>
+            <hr>
+            <br>
+            <div  *ngFor="let eventList of events">
+              <div class="events-list">
+                <p class="event-title">{{eventList.title}}</p>
+                <p>{{eventList.eventDay}}</p>
+                <button class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
+              </div>
+              <br>
+              <hr>
             </div>
+
           </div>
 
 
