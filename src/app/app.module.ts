@@ -23,6 +23,7 @@ import { EventAddFormComponent } from './pages/event-add-form/event-add-form.com
 import { AboutComponent } from './pages/about/about.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { VoluntersListComponent } from './pages/volunters-list/volunters-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     EventInfoComponent,
     EventAddFormComponent,
 
-    AboutComponent
+    AboutComponent,
+      VoluntersListComponent
   ],
   imports: [
     BrowserModule,

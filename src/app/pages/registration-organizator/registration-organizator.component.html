@@ -1,0 +1,58 @@
+<!-- registration.component.html -->
+<div class="container-main">
+  <div class="form-container" id="form-container-register">
+    <h2 class='title'>Регистрация</h2>
+    <form class="form-registration"
+          novalidate>
+      <input type="text" id="firstName"
+             name="firstName"
+             placeholder="Наименование организации"
+             class='form-input-register'
+             required>
+      <div class="error-message" ></div>
+
+
+      <input type="text" id="lastName"
+             name="lastName"
+             placeholder="адрес" class='form-input-register'
+             required>
+      <input type="text" id="phone"
+             name="phone"
+             placeholder="телефон" class='form-input-register'
+             required>
+      <div class="error-message" ></div>
+      <input type="text" id="city"
+             name="city"
+             placeholder="город" class='form-input-register'
+             required>
+
+      <input type="text" id="email"
+             name="email"
+             placeholder="Email" class='form-input-register'
+             required>
+      <input type="password" id="password"
+             name="password"
+             placeholder="новый пароль" class='form-input-register'
+             required>
+      <div class="error-message" ></div>
+
+      <input type="password" id="repeatPassword"
+             name="repeatPassword"
+             placeholder="повторный пароль" class='form-input-register'
+             required>
+      <div class="error-message" ></div>
+
+      <label for="userType">User Type</label>
+      <select id="userType" name="userType"
+              class='form-input-register'>
+        <option value="">User</option>
+        <option value="">Organizer</option>
+      </select>
+
+      <button type="submit"
+              class='form-submit' id="form-submit-register"
+      >Регистрация</button>
+    </form>
+  </div>
+</div>
+

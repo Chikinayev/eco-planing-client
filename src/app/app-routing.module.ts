@@ -14,6 +14,9 @@ import {EventInfoComponent} from "./pages/event-info/event-info.component";
 import {EventAddFormComponent} from "./pages/event-add-form/event-add-form.component";
 
 import {AboutComponent} from "./pages/about/about.component";
+import {RegistrationOrganizatorComponent} from "./pages/registration-organizator/registration-organizator.component";
+import {VoluntersListComponent} from "./pages/volunters-list/volunters-list.component";
+
 
 const routes: Routes = [
   {
@@ -66,6 +69,14 @@ const routes: Routes = [
   {
     path: 'about',
     component : AboutComponent
+  },
+  {
+    path: 'registration-org',
+    component : RegistrationOrganizatorComponent
+  },
+  {
+    path: 'volunters',
+    component : VoluntersListComponent
   },
 
   { path: '**', redirectTo: '' }];
