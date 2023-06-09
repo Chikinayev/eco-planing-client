@@ -2,7 +2,7 @@
 <div class="container-main">
   <div class="form-container" id="form-container-register">
     <h2 class='title'>Регистрация</h2>
-    <form  #registrationForm="ngForm" class="form-registration"
+    <form class="form-registration"
           novalidate>
       <input type="text" id="firstName"
              name="firstName"
@@ -49,7 +49,7 @@
         <option value="">Organizer</option>
       </select>
 
-      <button type="submit" [disabled]="registrationForm.invalid"
+      <button type="submit"
               class='form-submit' id="form-submit-register"
       >Регистрация</button>
     </form>

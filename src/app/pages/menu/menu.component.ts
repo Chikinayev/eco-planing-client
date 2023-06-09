@@ -44,6 +44,9 @@ export class MenuComponent {
     this.router.navigate(['organizations']).then();
   }
 
+  volunter(){
+    this.router.navigate(['volunters']).then();
+  }
   profile() {
     this.router.navigate(['profile']).then();
   }

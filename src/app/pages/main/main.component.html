@@ -15,14 +15,9 @@
 
         <div *ngFor="let event of eventList" class="card">
 
-              <div
-                class="card__img"
-                style="
-                    --img: url(./taza-jol.jpg);
-                  "
-              >
-                <img *ngIf="event.eventPhotos" [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
-              </div>
+              <a (click)="getEvent(event.id)">
+                <img class="card__img" *ngIf="event.eventPhotos" [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
+              </a>
               <div class="card__content">
                 <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
                 <br>
