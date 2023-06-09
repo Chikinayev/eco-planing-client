@@ -81,7 +81,6 @@ export class EventComponent implements OnDestroy{
   }
 
   getImageUrl(file: File): string {
-    console.log('ppp :: ', file);
     return URL.createObjectURL(file);
   }
 

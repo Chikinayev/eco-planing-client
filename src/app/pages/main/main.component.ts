@@ -1,49 +1,45 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {EventList} from "../../model/eventList";
 import {EventDto} from "../../model/eventDto";
 import {EventController} from "../../controller/eventController";
-import {tap} from "rxjs";
+import {filter, tap} from "rxjs";
 import {LoginServices} from "../../services/login.services";
 import {ActivatedRoute, Router, Routes} from "@angular/router";
 import {FileController} from "../../controller/fileController";
-import {PageEvent} from "@angular/material/paginator";
-import {FilterPage} from "../../model/FilterPage";
+import {MatPaginator, MatPaginatorModule, PageEvent} from "@angular/material/paginator";
+import {EventFilterPage} from "../../model/eventFilterPage";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit{
 
-  eventList: EventDto[] = []; // Ваш массив событий
+  eventList: EventDto[] = [];
 
-
-  // pagedEventList: any[] = []; // Массив отображаемых событий на текущей странице
-  // totalItems = 11; // Общее количество элементов
-  // pageSize = 8; // Количество элементов на странице
-  // currentPage = 10;
-
-  filter: FilterPage = new FilterPage();
-
-
+  filter: EventFilterPage;
 
 
   constructor(private readonly eventController: EventController,
               private readonly fileController: FileController,
               private readonly loginServices: LoginServices,
               private readonly router: Router) {
+    this.filter = new EventFilterPage();
     this.init();
   }
 
   init() {
     console.log('444444')
-    this.eventController.getAllEvent()
+    this.eventController.getEventByFilter(this.filter)
       .pipe(
         tap(value => {
           if (value) {
             console.log('addd ', value);
-            this.eventList = value;
+            this.eventList = value.eventDtoList;
+            this.filter.totalItems = value.filter.totalItems;
+            this.filter.currentPage = value.filter.currentPage;
+
             this.downloadFile();
           }
         })
@@ -75,7 +71,6 @@ export class MainComponent {
     }
   }
   getImageUrl(file: File): string {
-    console.log('ppp :: ', file);
     return URL.createObjectURL(file);
   }
 
@@ -97,10 +92,12 @@ export class MainComponent {
     this.router.navigate(['event-info'], {queryParams}).then();
   }
   onPageChange(event: PageEvent) {
+    console.log('11111233')
     this.filter.currentPage = event.pageIndex;
     this.filter.pageSize = event.pageSize;
 
     // this.eventController.getEventById().subscribe();
+    this.init();
 
     console.log('qwe')
     this.updatePagedEventList();
@@ -110,5 +107,14 @@ export class MainComponent {
     // this.filter.pagedEventList = this.eventList.slice(startIndex, startIndex + this.filter.pageSize);
   }
 
+  ngAfterViewInit(): void {
+    this.init();
+
+  }
+
+  search() {
+    this.filter.currentPage = 0;
+    this.init();
+  }
 }
 

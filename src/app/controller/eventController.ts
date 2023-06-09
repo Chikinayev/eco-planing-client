@@ -2,7 +2,8 @@ import {Injectable} from "@angular/core";
 import {HttpService} from "../lib/http.service";
 import {EventDto} from "../model/eventDto";
 import {EventList} from "../model/eventList";
-import {FilterPage} from "../model/FilterPage";
+import {EventFilterPage} from "../model/eventFilterPage";
+import {ReturnFilter} from "../model/returnFilter";
 
 @Injectable({ providedIn: 'root' })
 
@@ -18,8 +19,8 @@ export class EventController{
     return this.http.toPostService0<EventList[]>('eventListByID', eventId);
   }
 
-  getEventByFilter(filterPage: FilterPage) {
-    return this.http.toPostService0<EventList[]>('eventListByID', filterPage);
+  getEventByFilter(filterPage: EventFilterPage) {
+    return this.http.toPostService0<ReturnFilter>('getEventByFilter', filterPage);
   }
 
   getEventByName(find: string) {
