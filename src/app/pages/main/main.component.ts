@@ -100,11 +100,6 @@ export class MainComponent implements AfterViewInit{
     this.init();
 
     console.log('qwe')
-    this.updatePagedEventList();
-  }
-  updatePagedEventList() {
-    const startIndex = this.filter.currentPage * this.filter.pageSize;
-    // this.filter.pagedEventList = this.eventList.slice(startIndex, startIndex + this.filter.pageSize);
   }
 
   ngAfterViewInit(): void {

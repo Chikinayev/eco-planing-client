@@ -8,138 +8,33 @@
     </div>
     <div class="content">
       <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
+      <div class="person" *ngFor="let user of users">
+        <img [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
         <div class="person-desc">
           <div class="person-info">
             <div class="person-name">
-              Almat Erasyl
+              {{user.fio}}
             </div>
             <div class="person-rating">
-              рейтинг: 100
+              рейтинг: {{user.rating}}
             </div>
             <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
+              <a href="mailto:{{user.email}}">{{user.email}}</a>
             </div>
-
           </div>
           <br>
           <div class="person-location">
-            Акмолинская область, Астана
+            {{user.city}}
           </div>
-
         </div>
-        <div>
-          <button class="btn-delete-user">
+        <div *ngIf="isAdmin">
+          <button  class="btn-delete-user" (click)="deleteUser(user.id)">
             Удалить
           </button>
         </div>
       </div>
-      <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
-        <div class="person-desc">
-          <div class="person-info">
-            <div class="person-name">
-              Almat Erasyl
-            </div>
-            <div class="person-rating">
-              рейтинг: 100
-            </div>
-            <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
-            </div>
-          </div>
-          <br>
-          <div class="person-location">
-            Акмолинская область, Астана
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
-        <div class="person-desc">
-          <div class="person-info">
-            <div class="person-name">
-              Almat Erasyl
-            </div>
-            <div class="person-rating">
-              рейтинг: 100
-            </div>
-            <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
-            </div>
-          </div>
-          <br>
-          <div class="person-location">
-            Акмолинская область, Астана
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
-        <div class="person-desc">
-          <div class="person-info">
-            <div class="person-name">
-              Almat Erasyl
-            </div>
-            <div class="person-rating">
-              рейтинг: 100
-            </div>
-            <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
-            </div>
-          </div>
-          <br>
-          <div class="person-location">
-            Акмолинская область, Астана
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
-        <div class="person-desc">
-          <div class="person-info">
-            <div class="person-name">
-              Almat Erasyl
-            </div>
-            <div class="person-rating">
-              рейтинг: 100
-            </div>
-            <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
-            </div>
-          </div>
-          <br>
-          <div class="person-location">
-            Акмолинская область, Астана
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="person">
-        <img src="/assets/images/telegram.png" width="70px" height="70px">
-        <div class="person-desc">
-          <div class="person-info">
-            <div class="person-name">
-              Almat Erasyl
-            </div>
-            <div class="person-rating">
-              рейтинг: 100
-            </div>
-            <div class="person-email">
-              <a href="mailto:bagitbek1@gmail.com">bagitbek1@gmail.com</a>
-            </div>
-          </div>
-          <br>
-          <div class="person-location">
-            Акмолинская область, Астана
-          </div>
-        </div>
-      </div>
+
+      <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
 
     </div>
   </div>

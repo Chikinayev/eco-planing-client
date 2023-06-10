@@ -3,6 +3,8 @@ import {HttpService} from "../lib/http.service";
 import {User} from "../model/user";
 import {ResponseToken} from "../model/responseToken";
 import {UserDto} from "../model/userDto";
+import {EventFilterPage} from "../model/eventFilterPage";
+import {ReturnFilter} from "../model/returnFilter";
 
 @Injectable({ providedIn: 'root' })
 export class WebAuthController {
@@ -34,4 +36,8 @@ export class WebAuthController {
    postFile(file:File) {
     return this.http.postFile('asd', file);
    }
+
+  getAllUsers(filter: EventFilterPage) {
+    return this.http.toPostService0<ReturnFilter>('getAllUsers', filter);
+  }
 }

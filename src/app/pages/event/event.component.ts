@@ -5,9 +5,8 @@ import {SubSink} from "../../util/SubSink";
 import {LoginServices} from "../../services/login.services";
 import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
-import {WebAuthController} from "../../controller/WebAuthController";
 import {EventController} from "../../controller/eventController";
-import {catchError, map} from "rxjs/operators";
+import {map} from "rxjs/operators";
 
 
 @Component({
@@ -58,11 +57,11 @@ export class EventComponent implements OnDestroy{
     this.event.eventCreatedDate = new Date();
     // this.event.eventDay = this.event.eventDay;
     console.log('Created Event:', this.event);
-    this.eventController.saveEvent(this.event)
+    this.subs.sink = this.eventController.saveEvent(this.event)
       .pipe(
         map(value => {
           if (!!this.eventPhotos){
-            this.eventController.saveMultipart(this.eventPhotos, value).subscribe();
+            this.subs.sink = this.eventController.saveMultipart(this.eventPhotos, value).subscribe();
           }
           this.router.navigate(['profile']).then();
         })

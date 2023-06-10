@@ -20,12 +20,11 @@ export class RegistrationComponent {
   repeatPassword: string;
   repeatPasswordError: string;
   phoneError: string;
-  roles: string[];
+  roles: Role;
   @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
   web: WebAuthController = inject(WebAuthController);
   constructor(private readonly router: Router) {
-    this.roles = Object.values(Role);
   }
 
   onSubmit() {
@@ -33,6 +32,7 @@ export class RegistrationComponent {
       console.log('4444444')
       return;
     }
+    this.user.roles = [this.roles];
     // console.log('555555', this.images);
     this.web.registration(this.user).toPromise().then(value => {
       this.web.setToken(value.token);
