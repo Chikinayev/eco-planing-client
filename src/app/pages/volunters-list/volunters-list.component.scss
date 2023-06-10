@@ -49,3 +49,16 @@
 .person-location{
   color: darkgray;
 }
+.btn-delete-user{
+  height: 60px;
+  background: white;
+  color: #0a2638;
+  border-color: #04AA6D;
+  border-style: solid;
+  font-size: medium;
+  font-family: 'Geologica', sans-serif;
+}
+.btn-delete-user:hover{
+  background: #04AA6D;
+  color: white;
+}
