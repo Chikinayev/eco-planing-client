@@ -1,7 +1,22 @@
 export enum City {
-  Almaty= "Алматы", Shymkent= "Шымкент", Astana = "Астана"
-
-
-
+  Almaty= "Алматы", Shymkent= "Шымкент", Astana = "Астана", Kostanay="Костанай", Taraz="Тараз",
+  Aktobe="Актобе", Pavlodar="Павлодар", Aktay="Актау", Atyray="Атырау", Karaganda="Караганда",
+    Semey="Семей",
+    Kyzylorda="Кызылорда",
+    Uralsk="Уральск",
+    Petropavlovsk="Петропавловск",
+    Aktau="Актау",
+    Temirtau="Темиртау",
+    Atyrau="Атырау",
+    Kokshetau="Кокшетау",
+    Taldykorgan="Талдыкорган",
+    Oral="Орал",
+    Rudny="Рудный",
+    Ekibastuz="Экибастуз",
+    Zhezkazgan="Жезказган",
+    Turkestan="Туркестан",
+    Kentau="Кентау",
+    Kaskelen="Каскелен",
+    Zhanaozen="Жанаозен",
 
 }
