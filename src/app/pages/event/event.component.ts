@@ -61,10 +61,8 @@ export class EventComponent implements OnDestroy{
     this.eventController.saveEvent(this.event)
       .pipe(
         map(value => {
-          console.log('qqq :: ', value);
-          console.log('www :: ', )
           if (!!this.eventPhotos){
-            return this.eventController.saveMultipart(this.eventPhotos, value).subscribe();
+            this.eventController.saveMultipart(this.eventPhotos, value).subscribe();
           }
           this.router.navigate(['profile']).then();
         })
