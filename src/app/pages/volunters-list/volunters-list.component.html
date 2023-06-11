@@ -9,7 +9,7 @@
     <div class="content">
       <hr>
       <div class="person" *ngFor="let user of users">
-        <img [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
+        <img class="person-photo" [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
         <div class="person-desc">
           <div class="person-info">
             <div (click)="enterUser(user.id)" class="person-name">
@@ -32,8 +32,9 @@
             Удалить
           </button>
         </div>
-      </div>
 
+      </div>
+      <hr>
       <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
 
     </div>

@@ -39,11 +39,18 @@
 }
 .person-info{
   display: flex;
-  gap:30px;
-  justify-content: space-between;
+
+  //justify-content: space-between;
 }
 .person-name, .person-rating,.person-email{
   font-size: 20px;
+  position: absolute;
+}
+.person-rating{
+  margin-left:280px;
+}
+.person-email{
+  margin-left: 500px;
 }
 .person-location{
   color: darkgray;
@@ -60,4 +67,7 @@
 .btn-delete-user:hover{
   background: #04AA6D;
   color: white;
+}
+.person-photo{
+  border-radius: 50%;
 }

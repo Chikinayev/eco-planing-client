@@ -25,10 +25,10 @@
           <br>
           <div *ngIf="eventDto.subscribersCount">
             <div class="event-joiner" *ngFor="let user of eventDto.subscribers">
-              <div class="person">ФИО участника: {{user.fio}}</div>
-              <div class="person">Рейтинг : {{user.rating}}</div>
-              <div class="person">Номер телефона : {{user.phone}}</div>
-              <a href="https://wa.me/{{user.phone}}" onclick="window.open(this.href,'_blank'); return false;">
+              <div class="person-name">ФИО участника: {{user.fio}}</div>
+              <div class="person-rating">Рейтинг : {{user.rating}}</div>
+              <div class="person-number">Номер телефона : {{user.phone}}</div>
+              <a class="media" href="https://wa.me/{{user.phone}}" onclick="window.open(this.href,'_blank'); return false;">
                 <img src="/assets/images/whatsapp_black.png">
               </a>
             </div>

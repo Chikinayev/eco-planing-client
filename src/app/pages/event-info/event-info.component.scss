@@ -76,3 +76,16 @@ h3{
   justify-content: center;
 
 }
+.person-name, .person-rating,.person-number.media{
+  font-size: 20px;
+  position: absolute;
+}
+.person-rating{
+  margin-left:500px;
+}
+.person-number{
+  margin-left: 800px;
+}
+.media{
+  margin-left: 10px;
+}
