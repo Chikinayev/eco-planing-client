@@ -7,8 +7,12 @@
   <main class="content">
       <div class="content__cards" *ngFor="let user of users">
         <div class="card">
-
-          <img class="card__img" [src]="getImageUrl(user.userPhotos?.[0])">
+          <div *ngIf="!!user.userPhotos; else photo">
+            <img class="card__img" [src]="getImageUrl(user.userPhotos?.[0])">
+          </div >
+          <ng-template #photo>
+            <img class="card__img" src="assets/images/almaty-volunters.jpg">
+          </ng-template>
           <div class="card__content">
             <div class="card__title" (click)="enterUser(user.id)">
               {{user.fio}}

@@ -9,7 +9,12 @@
     <div class="content">
       <hr>
       <div class="person" *ngFor="let user of users">
-        <img [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
+        <div *ngIf="!!user.userPhotos; else photo">
+          <img [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
+        </div>
+        <ng-template #photo>
+          <img src="assets/images/almaty-volunters.jpg" width="70px" height="70px">
+        </ng-template>
         <div class="person-desc">
           <div class="person-info">
             <div (click)="enterUser(user.id)" class="person-name">
