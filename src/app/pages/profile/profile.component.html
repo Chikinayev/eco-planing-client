@@ -8,8 +8,6 @@
 
 
 
-
-
         <div *ngFor="let personImage of images">
           <img class="avatar" [src] = "getImageUrl(personImage)" width="250" height="250" alt="Фото профиля">
           <button *ngIf="homePage" class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
@@ -47,7 +45,7 @@
                 <p class="event-title">{{eventList.title}}</p>
                 <p>{{eventList.eventDay}}</p>
                 <div>
-                  <button class="btn-edit-event">Редактировать</button>
+                  <button (click)="changeEvent(eventList.id)" class="btn-edit-event">Редактировать</button>
                   <button *ngIf="homePage && profile.isOrganizer" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
                 </div>
 
@@ -55,13 +53,9 @@
               <br>
               <hr>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   </main>
 </div>

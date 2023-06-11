@@ -138,4 +138,10 @@ export class ProfileComponent implements OnDestroy{
       })
     ).subscribe();
   }
+
+  public changeEvent(id: number) {
+    const queryParams = {id: id};
+    this.router.navigate(['event'], {queryParams}).then();
+  }
+
 }

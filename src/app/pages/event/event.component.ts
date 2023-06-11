@@ -33,7 +33,13 @@ export class EventComponent implements OnDestroy{
     this.subs.sink = this.route.queryParams.pipe(
       tap(value => {
         if (Object.keys(value).length !== 0) {
-          this.event = value as EventDto;
+          this.subs.sink = this.eventController.getEventDtoById(value['id'])
+            .pipe(
+              tap(value => {
+                this.event = value as EventDto;
+              })
+            )
+            .subscribe();
         } else {
           this.event = new EventDto();
         }

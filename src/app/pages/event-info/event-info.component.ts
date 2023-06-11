@@ -21,7 +21,8 @@ export class EventInfoComponent {
   private readonly subs = new SubSink();
   constructor(private readonly route: ActivatedRoute,
               private readonly fileController: FileController,
-              private readonly eventController: EventController) {
+              private readonly eventController: EventController,
+              ) {
     this.init();
   }
 
