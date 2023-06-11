@@ -23,7 +23,6 @@ export class LoginServices{
   }
 
   async init() {
-    console.log('llllll')
      const value = await this.auth.loadAuthInfo().toPromise();
     if (value){
       this.userSubject.next(value);

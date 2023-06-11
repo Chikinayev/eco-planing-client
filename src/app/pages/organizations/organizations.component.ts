@@ -31,19 +31,15 @@ export class OrganizationsComponent {
   getUser() {
     this.loginService.init().then(
       () => {
-        console.log('NDfRkzKQzq : ', this.loginService.authInfo)
         this.isAdmin = this.loginService.authInfo.isAdmin;
       }
     )
   }
   init() {
-    console.log('HV117ChsDY :: ')
     this.userController.getAllOrganizer(this.filter)
       .pipe(
         tap((value)=> {
-          console.log('jz5ea0d3Th :: ', value)
           this.users =value.userDtos;
-          console.log('Ym7YwKF4Cd :: ', this.users);
           this.filter.totalItems = value.filter.totalItems;
           this.filter.currentPage = value.filter.currentPage;
 
@@ -56,14 +52,11 @@ export class OrganizationsComponent {
 
   downloadFile() {
     for (let i = 0; i < this.users.length; i++){
-      console.log('333333', this.users.length)
       if (this.users[i].imgIds && this.users[i].imgIds.length > 0){
-        console.log('2222')
         this.fileController.downloadFile(this.users[i].imgIds[0].toString())
           .pipe(
             tap(
               value => {
-                console.log('qqqqq')
                 if (!this.users[i].userPhotos){
                   this.users[i].userPhotos = [];
                 }

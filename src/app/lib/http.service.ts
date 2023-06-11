@@ -27,7 +27,6 @@ export class HttpService {
 
   public toGetService<T>(path: string, model?: any): Observable<T> {
     const url = environment.urlPrefix + this.prefix;
-    console.log('urll:: ' + url);
     const ob: OptionsBuilder = new OptionsBuilder();
 
     {

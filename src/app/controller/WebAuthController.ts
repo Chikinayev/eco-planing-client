@@ -28,7 +28,6 @@ export class WebAuthController {
    }
 
    registration(user: User) {
-     console.log('333333', user);
     return this.http.toPostService0<ResponseToken>('registration', user);
    }
 

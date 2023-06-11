@@ -56,7 +56,6 @@ export class EventComponent implements OnDestroy{
     this.event.createUser = this.currentUser;
     this.event.eventCreatedDate = new Date();
     // this.event.eventDay = this.event.eventDay;
-    console.log('Created Event:', this.event);
     this.subs.sink = this.eventController.saveEvent(this.event)
       .pipe(
         map(value => {

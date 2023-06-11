@@ -30,12 +30,10 @@ export class MainComponent implements AfterViewInit{
   }
 
   init() {
-    console.log('444444')
     this.eventController.getEventByFilter(this.filter)
       .pipe(
         tap(value => {
           if (value) {
-            console.log('addd ', value);
             this.eventList = value.eventDtoList;
             this.filter.totalItems = value.filter.totalItems;
             this.filter.currentPage = value.filter.currentPage;
@@ -50,14 +48,11 @@ export class MainComponent implements AfterViewInit{
 
   downloadFile() {
     for (let i = 0; i < this.eventList.length; i++){
-      console.log('333333', this.eventList.length)
       if (!!this.eventList[i].imageId){
-        console.log('2222')
         this.fileController.downloadFile(this.eventList[i].imageId.toString())
           .pipe(
             tap(
               value => {
-                console.log('qqqqq')
                 if (!this.eventList[i].eventPhotos){
                   this.eventList[i].eventPhotos = [];
                 }
@@ -76,8 +71,6 @@ export class MainComponent implements AfterViewInit{
 
   subscribe(id: number) {
     const user =  this.loginServices.authInfo;
-    console.log('111 ', user);
-    console.log('aaa', id)
     this.eventController.subscribe(user.id, id).pipe(
       tap(value => {
         this.init();
@@ -92,14 +85,12 @@ export class MainComponent implements AfterViewInit{
     this.router.navigate(['event-info'], {queryParams}).then();
   }
   onPageChange(event: PageEvent) {
-    console.log('11111233')
     this.filter.currentPage = event.pageIndex;
     this.filter.pageSize = event.pageSize;
 
     // this.eventController.getEventById().subscribe();
     this.init();
 
-    console.log('qwe')
   }
 
   ngAfterViewInit(): void {

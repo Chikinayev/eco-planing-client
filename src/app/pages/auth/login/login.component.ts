@@ -20,13 +20,11 @@ export class LoginComponent implements OnInit{
 
 
   login(): void {
-    console.log(`Username: ${this.email}, Password: ${this.password}`);
     this.loginService.login(this.email, this.password, this.errorMessage);
     // выполнение логики для входа пользователя
   }
 
   ngOnInit(): void {
-    console.log('pppppppppppp')
   }
 
   navigateToForgotPassword() {

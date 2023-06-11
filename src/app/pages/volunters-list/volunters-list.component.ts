@@ -32,18 +32,14 @@ export class VoluntersListComponent {
   getUser() {
     this.loginService.init().then(
       () => {
-        console.log('NDfRkzKQzq : ', this.loginService.authInfo)
         this.isAdmin = this.loginService.authInfo.isAdmin;
       }
     )
   }
   init() {
-    console.log('HV117ChsDY :: ')
     this.userController.getAllUsers(this.filter)
       .pipe(
         tap((value)=> {
-          console.log('jz5ea0d3Th :: ', value)
-          console.log('jz5ea0d3Th :: ', value)
           this.users =value.userDtos;
           this.filter.totalItems = value.filter.totalItems;
           this.filter.currentPage = value.filter.currentPage;
@@ -57,14 +53,11 @@ export class VoluntersListComponent {
 
   downloadFile() {
     for (let i = 0; i < this.users.length; i++){
-      console.log('333333', this.users.length)
       if (!!this.users[i].imgIds){
-        console.log('2222')
         this.fileController.downloadFile(this.users[i].imgIds[0].toString())
           .pipe(
             tap(
               value => {
-                console.log('qqqqq')
                 if (!this.users[i].userPhotos){
                   this.users[i].userPhotos = [];
                 }

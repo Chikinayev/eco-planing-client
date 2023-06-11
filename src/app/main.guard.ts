@@ -11,10 +11,8 @@ export class MainGuard implements CanLoad {
     private readonly router: Router) {}
 
   async canLoad(route: Route, segments: UrlSegment[]): Promise<boolean> {
-    console.log('aaaaaa')
     await this.loginService.init();
     const isLoggedIn = !!this.loginService.authInfo;
-    console.log('qwewqeqwewqeqw')
     if (!isLoggedIn) {
       await this.router.navigateByUrl('/login');
       return false;

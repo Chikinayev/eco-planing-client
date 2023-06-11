@@ -35,7 +35,6 @@
 //   }
 //
 //   @HostListener('window:pagehide', ['$event']) pageHideHandler() {
-//     console.log('Sagadat otmor -------------------------------------------------------');
 //     this.hotDataService.saveHotDataInStorage();
 //   }
 //

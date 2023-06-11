@@ -39,7 +39,6 @@ export class EventController{
   }
 
   subscribe(userId:number, eventId:number) {
-    console.log('222')
     return this.http.toPostService0<void>('subscribe', {userId: userId, eventId: eventId});
   }
 
@@ -47,27 +46,11 @@ export class EventController{
     return this.http.toPostService0<void>('deleteEvent', {userId: userId, eventId: eventId});
   }
 
-  // saveMultipart(keyValue: any) {
-  //   const input = new FormData();
-  //   for (const key of Object.keys(keyValue)) {
-  //     const value = keyValue[key];
-  //     if (value !== undefined && value !== null) {
-  //       console.log('qqqq :: ', key);
-  //       console.log('aaaaa :: ', typeof value);
-  //       input.append(key, value);
-  //     }
-  //   }
-  //   console.log('qqqqq');
-  //   return this.http.toPostFileService<void>('saveEvent', input);
-  // }
-
-
   saveMultipart(file: File, id:number) {
     const input = new FormData();
     input.append('file', file, file.name);
     input.append('id', id.toString());
 
-    console.log('qqqqq');
     return this.http.toPostFileService<void>('uploadEvent', input);
   }
 

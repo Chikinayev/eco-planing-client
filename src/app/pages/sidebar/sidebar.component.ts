@@ -23,7 +23,6 @@ export class SidebarComponent {
         tap(value => {
           if (value){
             const queryParams = value;
-            console.log('6666', value)
             this.router.navigate(['/main'],{queryParams}).then()
           }
           })

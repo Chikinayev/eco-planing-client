@@ -29,11 +29,9 @@ export class RegistrationComponent {
 
   onSubmit() {
     if (!this.validateUserForm()) {
-      console.log('4444444')
       return;
     }
     this.user.roles = [this.roles];
-    // console.log('555555', this.images);
     this.web.registration(this.user).toPromise().then(value => {
       this.web.setToken(value.token);
       const queryParams = value.userDto;
@@ -70,7 +68,6 @@ export class RegistrationComponent {
 
   validatePhone() {
     if (!this.user.phoneNumber.match(/^\d{11}$/)) {
-      console.log('aaaaa');
       this.phoneError = 'Длина номера должна быть 11';
     } else {
       this.phoneError = ''
@@ -99,38 +96,6 @@ export class RegistrationComponent {
   }
 
   protected readonly UserType = Role;
-
-  // onFileSelected(event: any) {
-  // const filesList: FileList = event.target.files;
-  // if (!this.images) {
-  //   this.images = [];
-  // }
-  // for (let i = 0; i < filesList.length; i++) {
-  //   const file: File | null = filesList.item(i);
-  //   if (file) {
-  //     this.images.push(file);
-  //   }
-  // }
-  //   if (this.fileInputRef) {
-  //     this.fileInputRef.nativeElement.value = '';
-  //   }
-  //
-  // console.log('www :: ', this.user);
-  // console.log('rrr :: ', this.images);
-  // }
-
-  //   delImageUrl(file: File) {
-  //   if (this.images){
-  //     this.images = this.images.filter(value => value.name != file.name);
-  //   }
-  // }
-  //
-  //
-  // getImageUrl(file: File): string {
-  //   console.log('ppp :: ', file);
-  //   return URL.createObjectURL(file);
-  // }
-
 
   changeRole() {
     this.user.roles. splice(0, this.user.roles.length);

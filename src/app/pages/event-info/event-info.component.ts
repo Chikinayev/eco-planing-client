@@ -31,7 +31,6 @@ export class EventInfoComponent {
         if (value){
           this.id = value['id'];
           this.getEvent(this.id);
-          console.log('aaa', this.id);
         }
       })
     ).subscribe()
@@ -55,7 +54,6 @@ export class EventInfoComponent {
         this.downloadFile();
         this.getFormattedDate();
         this.getFormattedTime();
-        console.log('qqqq ', this.eventDto);
       })
     ).subscribe();
   }
@@ -65,14 +63,11 @@ export class EventInfoComponent {
   }
 
   downloadFile() {
-      console.log('333333')
       if (this.eventDto.imageId){
-        console.log('2222')
         this.fileController.downloadFile(this.eventDto.imageId.toString())
           .pipe(
             tap(
               value => {
-                console.log('qqqqq')
                 if (!this.eventDto.eventPhotos){
                   this.eventDto.eventPhotos = [];
                 }

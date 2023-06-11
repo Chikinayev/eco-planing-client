@@ -30,7 +30,6 @@ export class ProfileComponent implements OnDestroy{
               private readonly loginService: LoginServices,
               private readonly route: ActivatedRoute) {
 
-    console.log('wwwww');
     this.init();
   }
 
@@ -45,7 +44,6 @@ export class ProfileComponent implements OnDestroy{
           this.loginService.init().then(
             value => {
               this.profile = this.loginService.authInfo;
-              console.log("r17U54IIZG ", this.profile)
               this.images = [];
               this.homePage = true;
               this.getImageProfile();
@@ -59,9 +57,7 @@ export class ProfileComponent implements OnDestroy{
 
   getImageProfile() {
     if (this.profile.imgIds !== null && this.profile.imgIds !== undefined) {
-      console.log('1111')
       for (let i = 0; i < this.profile.imgIds.length; i++) {
-        console.log('222',this.profile.imgIds[i]);
         this.subs.sink = this.fileController.downloadFile(this.profile.imgIds[i].toString()).pipe(
           tap(value => {
             if(this.profile.imgIds.length >= this.images.length) {
@@ -100,7 +96,6 @@ export class ProfileComponent implements OnDestroy{
       this.fileInputRef.nativeElement.value = '';
     }
 
-  console.log('rrr :: ', this.images);
   }
 
     delImageUrl(file: File) {
