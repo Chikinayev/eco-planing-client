@@ -16,7 +16,7 @@
           <img class="avatar" [src] = "getImageUrl(personImage)" width="250" height="250" alt="Фото профиля">
           <button *ngIf="homePage" class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
         </div>
-        <div *ngIf="!!profile.imgIds">
+        <div *ngIf="images.length === 0">
           <img class="avatar" src="assets/images/almaty-volunters.jpg" width="250" height="250" alt="Фото профиля">
         </div>
         <h3>{{ profile.fio }}</h3>
