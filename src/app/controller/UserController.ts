@@ -19,6 +19,14 @@ export class UserController {
     return this.http.toPostService0<ReturnFilter>('getAllUsers', filter);
   }
 
+  getAllOrganizer(filter: EventFilterPage) {
+    return this.http.toPostService0<ReturnFilter>('getAllOrganizer', filter);
+  }
+
+  getUserById(userId: number) {
+    return this.http.toPostService0<UserDto>('getUserById', {userId:userId});
+  }
+
   deleteUser(userId: number) {
     return this.http.toPostService0<void>('deleteUser', {userId})
   }

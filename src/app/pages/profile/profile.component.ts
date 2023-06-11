@@ -4,11 +4,10 @@ import {tap} from "rxjs";
 import {UserDto} from "../../model/userDto";
 import {FileController} from "../../controller/fileController";
 import {EventController} from "../../controller/eventController";
-import {EventDto} from "../../model/eventDto";
 import {EventList} from "../../model/eventList";
 import {SubSink} from "../../util/SubSink";
-import {WebAuthController} from "../../controller/WebAuthController";
 import {LoginServices} from "../../services/login.services";
+import {UserController} from "../../controller/UserController";
 
 @Component({
   selector: 'app-profile',
@@ -20,13 +19,16 @@ export class ProfileComponent implements OnDestroy{
   profile: UserDto = new UserDto();
   images: File[] = [];
   events: EventList[] = [];
+  homePage: boolean = false;
   private readonly subs = new SubSink();
   @ViewChild('fileInputRef') fileInputRef!: ElementRef<HTMLInputElement>;
 
   constructor(private readonly fileController: FileController,
               private readonly eventController: EventController,
+              private readonly userController: UserController,
               private readonly router: Router,
-              private readonly loginService: LoginServices) {
+              private readonly loginService: LoginServices,
+              private readonly route: ActivatedRoute) {
 
     console.log('wwwww');
     this.init();
@@ -34,14 +36,25 @@ export class ProfileComponent implements OnDestroy{
 
 
   init() {
-    this.loginService.init().then(
-      value => {
-        this.profile = this.loginService.authInfo;
-        this.images = [];
-        this.getImageProfile();
-        this.getEvents();
-      }
-    )
+    this.route.queryParams.pipe(
+      tap(value => {
+        if (!!value['id']){
+          console.log('DDfpR5IfKk :: ', value['id'])
+          this.getUser(value['id']);
+        } else {
+          this.loginService.init().then(
+            value => {
+              this.profile = this.loginService.authInfo;
+              console.log("r17U54IIZG ", this.profile)
+              this.images = [];
+              this.homePage = true;
+              this.getImageProfile();
+              this.getEvents();
+            }
+          )
+        }
+      })
+    ).subscribe()
 
   }
 
@@ -118,6 +131,20 @@ export class ProfileComponent implements OnDestroy{
     this.subs.sink = this.eventController.delEvent(this.profile.id, eventId).pipe(
       tap(value => {
         this.init();
+      })
+    ).subscribe();
+  }
+
+  private getUser(id: number) {
+    this.userController.getUserById(id).pipe(
+      tap(value => {
+        console.log('1bzon4ln3i :: ', value)
+        this.profile = value;
+        this.images = [];
+        this.homePage = false;
+
+        this.getImageProfile();
+        this.getEvents();
       })
     ).subscribe();
   }

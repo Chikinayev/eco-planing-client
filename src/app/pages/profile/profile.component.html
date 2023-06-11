@@ -42,7 +42,7 @@
               <div class="events-list">
                 <p class="event-title">{{eventList.title}}</p>
                 <p>{{eventList.eventDay}}</p>
-                <button class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
+                <button *ngIf="homePage" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
               </div>
               <br>
               <hr>

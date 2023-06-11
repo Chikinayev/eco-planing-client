@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
 import {UserDto} from "../../model/userDto";
-import {WebAuthController} from "../../controller/WebAuthController";
 import {EventFilterPage} from "../../model/eventFilterPage";
 import {PageEvent} from "@angular/material/paginator";
 import {tap} from "rxjs";
 import {FileController} from "../../controller/fileController";
 import {LoginServices} from "../../services/login.services";
-import {Role} from "../../model/role";
 import {UserController} from "../../controller/UserController";
 
 @Component({

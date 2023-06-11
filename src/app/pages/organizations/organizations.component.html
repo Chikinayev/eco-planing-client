@@ -5,53 +5,24 @@
   </div>
 
   <main class="content">
-      <div class="content__cards">
+      <div class="content__cards" *ngFor="let user of users">
         <div class="card">
 
-            <img class="card__img" src="assets/images/almaty-volunters.jpg">
+          <img class="card__img" [src]="getImageUrl(user.userPhotos?.[0])">
           <div class="card__content">
-            <div class="card__title">
-              Алматы волотенр
+            <div class="card__title" (click)="enterUser(user.id)">
+              {{user.fio}}
             </div>
             <div class="card__desc">
-                sdasasdsd
+              {{user.description}}
             </div>
             <div class="card__info">
-                asdasdkasdk
+              {{user.city}}
             </div>
             <button class="card__button">Удалить</button>
           </div>
         </div>
       </div>
-<!--    <div *ngIf="eventList" class="content__cards">-->
-
-<!--      <div *ngFor="let event of eventList" class="card">-->
-<!--        <a (click)="getEvent(event.id)">-->
-<!--          <img class="card__img" [src] = "getImageUrl(event.eventPhotos[0])" alt="Фото профиля">-->
-<!--        </a>-->
-<!--        <div class="card__content">-->
-<!--          <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>-->
-<!--          <br>-->
-<!--          <div class="card__desc">-->
-<!--            {{event.description}}-->
-<!--          </div>-->
-<!--          <div class="card__info">-->
-<!--            {{event.eventDay}}-->
-<!--          </div>-->
-<!--          <br>-->
-<!--          <p style="font-family: 'Geologica', sans-serif;"><strong>Волонтеры</strong>: {{event.subscribersCount}}</p>-->
-<!--          <br>-->
-<!--          <button (click)="subscribe(event.id)" class="card__button">Стать волонтером</button>-->
-<!--        </div>-->
-
-<!--      </div>-->
-
-<!--    </div>-->
-
-    <!--    </div>-->
   </main>
-  <!--  <div class="sidebar-wrapper">-->
-  <!--    <app-sidebar></app-sidebar>-->
-  <!--  </div>-->
 </div>
 
