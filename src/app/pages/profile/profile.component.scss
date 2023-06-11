@@ -134,7 +134,7 @@ button {
   font-family: 'Geologica', sans-serif;
   border-width: 2px;
 }
-.btn-add-event:hover , .btn-delete-event:hover, .edit-btn-profile:hover,.btn-edit-event:hover{
+.btn-add-event:hover ,.edit-btn-profile:hover,.btn-edit-event:hover{
   background: #04AA6D;
   color: white;
 
@@ -147,4 +147,17 @@ button {
   font-size: medium;
   font-family: 'Geologica', sans-serif;
   border-width: 2px;
+}
+.btn-delete-event{
+  background: white;
+  color: #0a2638;
+  border-color: red;
+  border-style: solid;
+  font-size: medium;
+  font-family: 'Geologica', sans-serif;
+  border-width: 2px;
+}
+.btn-delete-event:hover{
+  background: red;
+  color: white;
 }
