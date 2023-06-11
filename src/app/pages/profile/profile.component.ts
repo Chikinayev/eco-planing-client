@@ -140,6 +140,7 @@ export class ProfileComponent implements OnDestroy{
       tap(value => {
         console.log('1bzon4ln3i :: ', value)
         this.profile = value;
+        console.log('A4KHBmOo0c :: ', this.profile)
         this.images = [];
         this.homePage = false;
 

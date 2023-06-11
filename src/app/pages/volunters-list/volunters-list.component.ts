@@ -6,6 +6,7 @@ import {tap} from "rxjs";
 import {FileController} from "../../controller/fileController";
 import {LoginServices} from "../../services/login.services";
 import {UserController} from "../../controller/UserController";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-volunters-list',
@@ -20,7 +21,9 @@ export class VoluntersListComponent {
 
   constructor(private readonly userController: UserController,
               private readonly fileController: FileController,
-              private readonly loginService: LoginServices) {
+              private readonly loginService: LoginServices,
+              private readonly router: Router) {
+    this.filter.pageSize = 6;
     this.getUser();
     this.init();
   }
@@ -92,5 +95,9 @@ export class VoluntersListComponent {
       tap(()=> this.init())
       )
       .subscribe();
+  }
+  enterUser(id: number) {
+    const queryParams = {id: id};
+    this.router.navigate(['profile'], {queryParams}).then();
   }
 }

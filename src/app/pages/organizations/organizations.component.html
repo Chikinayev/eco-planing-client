@@ -19,10 +19,11 @@
             <div class="card__info">
               {{user.city}}
             </div>
-            <button class="card__button">Удалить</button>
+            <button *ngIf="isAdmin" (click)="deleteUser(user.id)" class="card__button">Удалить</button>
           </div>
         </div>
       </div>
+    <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
   </main>
 </div>
 

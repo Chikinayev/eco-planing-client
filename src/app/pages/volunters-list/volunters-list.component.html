@@ -12,7 +12,7 @@
         <img [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
         <div class="person-desc">
           <div class="person-info">
-            <div class="person-name">
+            <div (click)="enterUser(user.id)" class="person-name">
               {{user.fio}}
             </div>
             <div class="person-rating">

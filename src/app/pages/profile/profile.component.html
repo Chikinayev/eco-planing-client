@@ -6,7 +6,7 @@
     <div class="profile">
       <div class="profile_title">
 
-        <div *ngIf="images.length === 0">
+        <div *ngIf="images.length === 0 && homePage">
           <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
         </div>
 
@@ -14,13 +14,16 @@
 
         <div *ngFor="let personImage of images">
           <img class="avatar" [src] = "getImageUrl(personImage)" width="250" height="250" alt="Фото профиля">
-          <h3>{{ profile.fio }}</h3>
-          <button class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
-          <div class="profile-footer">
-            <p>{{ profile.email }}</p>
-            <p>{{ profile.phone }}</p>
-            <p>рейтинг: <strong>{{ profile.rating }}</strong></p>
-          </div>
+          <button *ngIf="homePage" class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
+        </div>
+        <div *ngIf="!!profile.imgIds">
+          <img class="avatar" src="assets/images/almaty-volunters.jpg" width="250" height="250" alt="Фото профиля">
+        </div>
+        <h3>{{ profile.fio }}</h3>
+        <div class="profile-footer">
+          <p>{{ profile.email }}</p>
+          <p>{{ profile.phone }}</p>
+          <p>рейтинг: <strong>{{ profile.rating }}</strong></p>
         </div>
 
       </div>
@@ -30,7 +33,7 @@
           <h3>Обо мне</h3>
           {{ profile.description }}
         </div>
-        <button class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
+        <button *ngIf="homePage && profile.isOrganizer" class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
         <div class="profile_events">
           <h3>Волонтерская деятельность</h3>
           <br>
@@ -42,7 +45,7 @@
               <div class="events-list">
                 <p class="event-title">{{eventList.title}}</p>
                 <p>{{eventList.eventDay}}</p>
-                <button *ngIf="homePage" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
+                <button *ngIf="homePage && profile.isOrganizer" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
               </div>
               <br>
               <hr>
