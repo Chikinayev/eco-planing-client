@@ -38,7 +38,7 @@ export class ProfileComponent implements OnDestroy{
   init() {
     this.route.queryParams.pipe(
       tap(value => {
-        if (!!value['id']){
+        if (!!value['id'] && !value['email']){
           console.log('DDfpR5IfKk :: ', value['id'])
           this.getUser(value['id']);
         } else {
@@ -55,7 +55,6 @@ export class ProfileComponent implements OnDestroy{
         }
       })
     ).subscribe()
-
   }
 
   getImageProfile() {
@@ -75,8 +74,6 @@ export class ProfileComponent implements OnDestroy{
   }
 
   getEvents() {
-      console.log('1111')
-        console.log('221232',this.profile);
         this.eventController.getEventById(this.profile.id).pipe(
           tap(value => {
             if (!!value) {
@@ -88,7 +85,6 @@ export class ProfileComponent implements OnDestroy{
 
 
   onFileSelected(event: any) {
-    console.log('2222')
   const filesList: FileList = event.target.files;
   if (!this.images) {
     this.images = [];
@@ -138,9 +134,7 @@ export class ProfileComponent implements OnDestroy{
   private getUser(id: number) {
     this.userController.getUserById(id).pipe(
       tap(value => {
-        console.log('1bzon4ln3i :: ', value)
         this.profile = value;
-        console.log('A4KHBmOo0c :: ', this.profile)
         this.images = [];
         this.homePage = false;
 
