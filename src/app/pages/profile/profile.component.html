@@ -6,9 +6,7 @@
     <div class="profile">
       <div class="profile_title">
 
-        <div *ngIf="images.length === 0 && homePage">
-          <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
-        </div>
+
 
 
 
@@ -17,7 +15,10 @@
           <button *ngIf="homePage" class="edit-btn-profile" (click)="delImageUrl(personImage)" style="width:250px" >редактировать </button>
         </div>
         <div *ngIf="images.length === 0">
-          <img class="avatar" src="assets/images/almaty-volunters.jpg" width="250" height="250" alt="Фото профиля">
+          <img class="avatar" src="assets/images/default_profile.jpg" width="250" height="250" alt="Фото профиля">
+        </div>
+        <div *ngIf="images.length === 0 && homePage">
+          <input #fileInputRef type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png" placeholder="добавить фото">
         </div>
         <h3>{{ profile.fio }}</h3>
         <div class="profile-footer">
