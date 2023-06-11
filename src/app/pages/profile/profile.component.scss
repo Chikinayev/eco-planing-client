@@ -134,12 +134,12 @@ button {
   font-family: 'Geologica', sans-serif;
   border-width: 2px;
 }
-.btn-add-event:hover , .btn-delete-event:hover, .edit-btn-profile:hover{
+.btn-add-event:hover , .btn-delete-event:hover, .edit-btn-profile:hover,.btn-edit-event:hover{
   background: #04AA6D;
   color: white;
 
 }
-.btn-delete-event,.edit-btn-profile {
+.btn-delete-event,.edit-btn-profile,.btn-edit-event {
   background: white;
   color: #0a2638;
   border-color: #04AA6D;

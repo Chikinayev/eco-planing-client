@@ -45,7 +45,11 @@
               <div class="events-list">
                 <p class="event-title">{{eventList.title}}</p>
                 <p>{{eventList.eventDay}}</p>
-                <button *ngIf="homePage && profile.isOrganizer" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
+                <div>
+                  <button class="btn-edit-event">Редактировать</button>
+                  <button *ngIf="homePage && profile.isOrganizer" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
+                </div>
+
               </div>
               <br>
               <hr>
