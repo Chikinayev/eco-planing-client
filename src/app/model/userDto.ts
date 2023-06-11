@@ -15,6 +15,7 @@ export class UserDto {
   city: City;
   isAdmin: boolean;
   isOrganizer: boolean;
+  isOrganizerActive: boolean;
 
   constructor() {
     this.imgIds = [];

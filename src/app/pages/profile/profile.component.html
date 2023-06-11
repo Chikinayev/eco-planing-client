@@ -32,7 +32,7 @@
           <h3>Обо мне</h3>
           {{ profile.description }}
         </div>
-        <button *ngIf="homePage && profile.isOrganizer" class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
+        <button *ngIf="homePage && profile.isOrganizer && profile.isOrganizerActive" class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
         <div class="profile_events">
           <h3>Волонтерская деятельность</h3>
           <br>

@@ -30,4 +30,7 @@ export class UserController {
   deleteUser(userId: number) {
     return this.http.toPostService0<void>('deleteUser', {userId})
   }
+  organizerActive(userId: number) {
+    return this.http.toPostService0<void>('organizerActive', {userId})
+  }
 }

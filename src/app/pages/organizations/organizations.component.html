@@ -23,8 +23,8 @@
             <div class="card__info">
               {{user.city}}
             </div>
+            <button (click)="organizerActive(user.id)" *ngIf="isAdmin && !user.isOrganizerActive" class="card__button">Активировать</button>
             <button *ngIf="isAdmin" (click)="deleteUser(user.id)" class="card__button">Удалить</button>
-            <button  class="card__button">Активировать</button>
           </div>
         </div>
       </div>

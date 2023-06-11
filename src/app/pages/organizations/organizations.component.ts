@@ -96,4 +96,13 @@ export class OrganizationsComponent {
     const queryParams = {id: id};
     this.router.navigate(['profile'], {queryParams}).then();
   }
+
+  organizerActive(id: number) {
+    this.userController.organizerActive(id)
+      .pipe(
+        tap(()=>this.init())
+      )
+      .subscribe();
+  }
+
 }
