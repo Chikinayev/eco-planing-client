@@ -1,0 +1,43 @@
+
+<div class="main-container">
+  <div class="page-show-title">
+    <h1>Волонтерские событие</h1>
+  </div>
+  <div class="search-line">
+    <div class="block-title">Поиск событий</div>
+    <div class="block block_flex">
+      <input class="search-input" type="text" placeholder="Названия" [(ngModel)]="filter.find"/>
+      <button class="search-btn" type="button" (click)="search()">Найти</button>
+    </div>
+  </div>
+  <main class="content">
+    <div *ngIf="eventList" class="content__cards">
+
+      <div *ngFor="let event of eventList" class="card">
+
+        <a (click)="getEvent(event.id)">
+          <img class="card__img" *ngIf="!event.eventPhotos" src="assets/images/almaty-volunters.jpg" width="200" height="200" alt="Фото профиля">
+          <img class="card__img" *ngIf="event.eventPhotos" [src] = "getImageUrl(event.eventPhotos[0])" width="200" height="200" alt="Фото профиля">
+        </a>
+        <div class="card__content">
+          <div class="card__title"><a (click)="getEvent(event.id)">{{event.title}}</a></div>
+          <br>
+          <div class="card__desc">
+            {{event.description}}
+          </div>
+          <div class="card__info">
+            {{event.eventDay}}
+          </div>
+          <br>
+          <p style="font-family: 'Geologica', sans-serif;"><strong>Волонтеры</strong>: {{event.subscribersCount}}</p>
+          <br>
+          <button (click)="subscribe(event.id)" class="card__button">Стать волонтером</button>
+        </div>
+      </div>
+
+    </div>
+    <mat-paginator [length]="filter.totalItems" [pageSize]="filter.pageSize" (page)="onPageChange($event)"></mat-paginator>
+
+  </main>
+</div>
+
