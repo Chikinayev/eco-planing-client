@@ -8,6 +8,7 @@ import {EventList} from "../../model/eventList";
 import {SubSink} from "../../util/SubSink";
 import {LoginServices} from "../../services/login.services";
 import {UserController} from "../../controller/UserController";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-profile',
@@ -47,7 +48,11 @@ export class ProfileComponent implements OnDestroy{
               this.images = [];
               this.homePage = true;
               this.getImageProfile();
-              this.getEvents();
+              if(this.profile.isOrganizer) {
+                this.getEvents();
+              } else {
+                this.subscribe();
+              }
             }
           )
         }
@@ -144,4 +149,16 @@ export class ProfileComponent implements OnDestroy{
     this.router.navigate(['event'], {queryParams}).then();
   }
 
+  private subscribe() {
+    this.eventController.getEventSubscribeByUser(this.profile.id)
+      .pipe(tap(value => {
+        if (!!value) {
+          this.events = value;
+          console.log('3nzpvjQJNU :: ', value)
+        }
+      }))
+      .subscribe()
+
+
+  }
 }
