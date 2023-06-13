@@ -37,7 +37,7 @@ export class LoginServices{
     if (!password) {
       return;
     }
-    this.subs.sink = this.auth.login(email, password).pipe(
+    return this.auth.login(email, password).pipe(
       tap(value => {
         this.auth.setToken(value.token);
           if (value.userDto){
@@ -45,16 +45,8 @@ export class LoginServices{
           }
         const queryParams = value.userDto;
         this.router.navigate(['profile'], {queryParams}).then();
-        console.log('ttttttttt :: ', value)}),
-      catchError(err => {
-        if (err.status === 403) {
-          errorMessage = 'У вас нет разрешения для доступа к этому ресурсу.';
-        } else {
-          errorMessage = 'Произошла ошибка. Пожалуйста, попробуйте еще раз.';
-        }
-        return throwError(err);
-      })
-    ).subscribe();
+        console.log('ttttttttt :: ', value)})
+    );
   }
 
 
