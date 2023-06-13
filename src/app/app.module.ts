@@ -24,6 +24,7 @@ import { AboutComponent } from './pages/about/about.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { VoluntersListComponent } from './pages/volunters-list/volunters-list.component';
+import { ReverseMainComponent } from './pages/reverse-main/reverse-main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { VoluntersListComponent } from './pages/volunters-list/volunters-list.co
     EventAddFormComponent,
 
     AboutComponent,
-      VoluntersListComponent
+      VoluntersListComponent,
+      ReverseMainComponent
   ],
   imports: [
     BrowserModule,

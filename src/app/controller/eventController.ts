@@ -4,6 +4,7 @@ import {EventDto} from "../model/eventDto";
 import {EventList} from "../model/eventList";
 import {EventFilterPage} from "../model/eventFilterPage";
 import {ReturnFilter} from "../model/returnFilter";
+import {ReverseMainComponent} from "../pages/reverse-main/reverse-main.component";
 
 @Injectable({ providedIn: 'root' })
 
@@ -21,6 +22,10 @@ export class EventController{
 
   getEventByFilter(filterPage: EventFilterPage) {
     return this.http.toPostService0<ReturnFilter>('getEventByFilter', filterPage);
+  }
+
+  getEventReverseByFilter(filterPage: EventFilterPage) {
+    return this.http.toPostService0<ReturnFilter>('getEventReverseByFilter', filterPage);
   }
 
   getEventByName(find: string) {

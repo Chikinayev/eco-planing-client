@@ -3,6 +3,7 @@ import {LoginServices} from "../../services/login.services";
 import {tap} from "rxjs";
 import {WebAuthController} from "../../controller/WebAuthController";
 import {Router} from "@angular/router";
+import {ReverseMainComponent} from "../reverse-main/reverse-main.component";
 
 @Component({
   selector: 'app-menu',
@@ -56,5 +57,8 @@ export class MenuComponent {
 
   about(){
     this.router.navigate(['about']).then();
+  }
+  reverse(){
+    this.router.navigate(['reverse']).then();
   }
 }

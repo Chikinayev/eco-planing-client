@@ -16,6 +16,7 @@ import {EventAddFormComponent} from "./pages/event-add-form/event-add-form.compo
 import {AboutComponent} from "./pages/about/about.component";
 import {RegistrationOrganizatorComponent} from "./pages/registration-organizator/registration-organizator.component";
 import {VoluntersListComponent} from "./pages/volunters-list/volunters-list.component";
+import {ReverseMainComponent} from "./pages/reverse-main/reverse-main.component";
 
 
 const routes: Routes = [
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'about',
     component : AboutComponent
+  },
+  {
+    path: 'reverse',
+    component : ReverseMainComponent
   },
   {
     path: 'registration-org',

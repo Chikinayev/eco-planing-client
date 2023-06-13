@@ -1,12 +1,11 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {EventList} from "../../model/eventList";
+import {AfterViewInit, Component} from '@angular/core';
 import {EventDto} from "../../model/eventDto";
 import {EventController} from "../../controller/eventController";
-import {filter, tap} from "rxjs";
+import {tap} from "rxjs";
 import {LoginServices} from "../../services/login.services";
-import {ActivatedRoute, Router, Routes} from "@angular/router";
+import {Router} from "@angular/router";
 import {FileController} from "../../controller/fileController";
-import {MatPaginator, MatPaginatorModule, PageEvent} from "@angular/material/paginator";
+import {PageEvent} from "@angular/material/paginator";
 import {EventFilterPage} from "../../model/eventFilterPage";
 
 @Component({
