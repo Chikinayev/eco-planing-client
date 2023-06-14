@@ -1,12 +1,12 @@
 
 <div class="main-container">
   <div class="page-show-title">
-    <h1>Волонтерские организации</h1>
+    <h1>Волонтерские организаторы</h1>
   </div>
 
   <main class="content">
-      <div class="content__cards" *ngFor="let user of users">
-        <div class="card">
+      <div class="content__cards" >
+        <div class="card" *ngFor="let user of users">
           <div *ngIf="!!user.userPhotos; else photo">
             <img class="card__img" [src]="getImageUrl(user.userPhotos?.[0])">
           </div >

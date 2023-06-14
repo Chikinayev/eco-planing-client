@@ -13,7 +13,7 @@
           <img class="person-photo" [src] = "getImageUrl(user.userPhotos[0])" width="70px" height="70px">
         </div>
         <ng-template #photo>
-          <img src="assets/images/almaty-volunters.jpg" width="70px" height="70px">
+          <img  class="person-photo" src="assets/images/default_profile.jpg" width="70px" height="70px">
         </ng-template>
         <div class="person-desc">
           <div class="person-info">
@@ -23,9 +23,7 @@
             <div class="person-rating">
               рейтинг: {{user.rating}}
             </div>
-            <div class="person-email">
-              <a href="mailto:{{user.email}}">{{user.email}}</a>
-            </div>
+
           </div>
           <br>
           <div class="person-location">

@@ -29,7 +29,7 @@
 
       <div class="profile_content">
         <div class="profile_content_info">
-          <h3>Обо мне</h3>
+
           {{ profile.description }}
         </div>
         <button *ngIf="homePage && profile.isOrganizer && profile.isOrganizerActive" class="btn-add-event" (click)="createEvent()"> Добавить Event</button>
@@ -45,7 +45,7 @@
                 <p class="event-title">{{eventList.title}}</p>
                 <p>{{eventList.eventDay}}</p>
                 <div>
-                  <button (click)="changeEvent(eventList.id)" class="btn-edit-event">Редактировать</button>
+                  <button *ngIf="homePage && profile.isOrganizer" (click)="changeEvent(eventList.id)" class="btn-edit-event">Редактировать</button>
                   <button *ngIf="homePage && profile.isOrganizer" class="btn-delete-event" (click)="delEvent(eventList.id)">Удалить</button>
                 </div>
 

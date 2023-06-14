@@ -1,8 +1,12 @@
-<div class="wrapper-contend">
+<div class="main-container">
+  <div class="page-show-title">
+    <h1>Добавить события</h1>
+  </div>
   <main class="content">
       <div class="event-form-container">
         <form (submit)="createEvent()">
-          <h2>Добавить события</h2>
+
+          <h4 *ngIf="errorMessage" style="color: red">{{errorMessage}}</h4>
           <input type="text" placeholder="Названия события"
                  class="event-form-input" [(ngModel)]="event.title"
                  name="title" required>
@@ -27,8 +31,6 @@
         </form>
       </div>
   </main>
-    <div class="sidebar-wrapper">
-      <app-sidebar></app-sidebar>
-    </div>
+
 
 </div>
